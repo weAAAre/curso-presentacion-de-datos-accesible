@@ -1,0 +1,206 @@
+/* Mensajería con el lenguaje visual de weAAAre. */
+.shipments {
+  --page-accent: var(--color-surface);
+
+  min-block-size: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.shipments a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.shipments a:hover {
+  background: var(--color-accent);
+}
+
+.shipments :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.shipments__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: var(--border);
+  background: var(--page-accent);
+}
+
+/* En la cabecera, el anillo de foco se dibuja en tinta. */
+.shipments__header :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.shipments__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.shipments__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.shipments__main {
+  max-inline-size: 60rem;
+  margin-inline: auto;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.shipments h1,
+.shipments h2 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
+}
+
+.shipments h1 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.shipments__intro {
+  margin-block-start: 0;
+  color: var(--color-ink-medium);
+}
+
+.shipments__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shipments__item {
+  padding: 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.shipments__title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.shipments__box {
+  flex: none;
+}
+
+.shipments__date,
+.shipments__code {
+  margin-block: 0.25rem;
+  color: var(--color-ink-medium);
+}
+
+.shipments__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+  font-weight: 700;
+}
+
+.shipments__status-icon {
+  flex: none;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  fill: currentColor;
+  stroke: var(--color-surface);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.shipments__status-icon path {
+  fill: none;
+}
+
+.shipments__status--delivered {
+  color: var(--color-ink);
+}
+
+.shipments__status--transit {
+  color: var(--color-ink);
+}
+
+.shipments__status--issue {
+  color: var(--color-ink);
+}
+
+.shipments__actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-block-start: 1rem;
+}
+
+.shipments__icon-button {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  padding: 0;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.shipments .shipments__icon-button:hover {
+  background: var(--color-accent);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 var(--color-ink);
+}
+
+.shipments__icon-button svg {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.shipments__copied {
+  min-block-size: 1.6em;
+  margin-block: 1.5rem 0;
+}
+
+.shipments__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/*
+ * Barrera deliberada: el estado es un círculo de color idéntico en forma,
+ * sin texto. Solo el color distingue entregado, en reparto e incidencia.
+ */
+.shipments--barrier .shipments__status-icon {
+  stroke: none;
+}

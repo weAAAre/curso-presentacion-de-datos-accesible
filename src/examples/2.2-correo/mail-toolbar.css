@@ -1,0 +1,204 @@
+/* Correo web con el lenguaje visual de weAAAre. */
+.mail {
+  --page-accent: var(--color-surface);
+
+  min-block-size: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.mail a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.mail a:hover {
+  background: var(--color-accent);
+}
+
+.mail :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.mail__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: var(--border);
+  background: var(--page-accent);
+}
+
+.mail__header :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.mail__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.mail__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.mail__nav [aria-current="page"] {
+  font-weight: 700;
+}
+
+.mail__main {
+  max-inline-size: 48rem;
+  margin-inline: auto;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.mail h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.mail__from {
+  margin-block: 0.25rem 1.5rem;
+  color: var(--color-ink-medium);
+}
+
+.mail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.75rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-paper);
+}
+
+.mail__tip {
+  position: relative;
+  display: inline-flex;
+}
+
+.mail__action {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  padding: 0;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.mail__action:hover {
+  background: var(--color-accent);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 var(--color-ink);
+}
+
+.mail__action svg {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* El tooltip toca el botón: el puntero puede pasar de uno a otro sin cerrarlo. */
+.mail__tooltip {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  z-index: 1;
+  inline-size: max-content;
+  max-inline-size: 16rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.mail__tooltip[hidden] {
+  display: none;
+}
+
+.mail__help {
+  flex: 1 1 14rem;
+}
+
+.mail__help-text {
+  color: var(--color-ink-medium);
+  font-size: 0.9375rem;
+}
+
+.mail__hint {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border: 2px solid var(--color-ink-soft);
+  border-radius: 50%;
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: help;
+}
+
+.mail__status {
+  min-block-size: 1.6em;
+  margin-block: 1rem;
+  font-weight: 700;
+}
+
+.mail__body {
+  padding: 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.mail__body p:first-child {
+  margin-block-start: 0;
+}
+
+.mail__body p:last-child {
+  margin-block-end: 0;
+}
+
+.mail__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/*
+ * Barrera deliberada: el tooltip se separa del botón. Al mover el puntero
+ * hacia él para leerlo, se sale del botón y desaparece.
+ */
+.mail--barrier .mail__tip--detached .mail__tooltip {
+  inset-block-start: calc(100% + 0.75rem);
+}

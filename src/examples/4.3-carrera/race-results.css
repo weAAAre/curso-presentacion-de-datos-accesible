@@ -1,0 +1,161 @@
+/* Carrera popular con el lenguaje visual de weAAAre. */
+.race {
+  --page-accent: var(--color-surface);
+
+  min-block-size: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.race a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.race a:hover {
+  background: var(--color-accent);
+}
+
+.race :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.race__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: var(--border);
+  background: var(--page-accent);
+}
+
+.race__header :focus-visible,
+.race__table thead :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.race__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.race__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.race__main {
+  max-inline-size: 60rem;
+  margin-inline: auto;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.race h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.race__intro {
+  margin-block-start: 0;
+  color: var(--color-ink-medium);
+}
+
+.race__summary {
+  min-block-size: 1.6em;
+  font-weight: 700;
+}
+
+.race__scroll {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.race__table {
+  inline-size: 100%;
+  min-inline-size: 38rem;
+  border-collapse: collapse;
+}
+
+.race__table caption {
+  padding: 1rem 1rem 0.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: start;
+}
+
+.race__table th,
+.race__table td {
+  padding: 0.6rem 1rem;
+  border-block-end: 1px solid var(--color-rule-soft);
+  text-align: start;
+}
+
+.race__table thead th {
+  border-block-end: var(--border);
+  background: var(--page-accent);
+  font-weight: 700;
+}
+
+.race__table thead th[aria-sort] {
+  background: var(--color-surface-sunken);
+}
+
+.race__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  margin: -0.4rem -0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.race__sort:hover {
+  background: var(--color-surface);
+}
+
+.race__sort--cell {
+  display: table-cell;
+  margin: 0;
+}
+
+.race__arrow {
+  font-size: 0.875rem;
+}
+
+.race__time {
+  font-variant-numeric: tabular-nums;
+}
+
+.race__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  text-align: center;
+}

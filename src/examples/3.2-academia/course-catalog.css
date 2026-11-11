@@ -1,0 +1,231 @@
+/* Academia con el lenguaje visual de weAAAre. */
+.catalog {
+  --page-accent: var(--color-surface);
+
+  min-block-size: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.catalog a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.catalog :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.catalog__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: var(--border);
+  background: var(--page-accent);
+}
+
+.catalog__header :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.catalog__header a:hover {
+  background: var(--color-accent);
+}
+
+.catalog__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.catalog__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.catalog__main {
+  max-inline-size: 70rem;
+  margin-inline: auto;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.catalog h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.catalog__intro {
+  margin-block-start: 0;
+  color: var(--color-ink-medium);
+}
+
+.catalog__views {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  border: 0;
+}
+
+.catalog__views legend {
+  float: inline-start;
+  margin-inline-end: 0.5rem;
+  font-weight: 700;
+}
+
+.catalog__views button,
+.card__save {
+  min-block-size: 2.75rem;
+  padding: 0.4rem 1rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.catalog__views button[aria-pressed="true"],
+.card__save[aria-pressed="true"] {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.catalog__list {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalog__list--grid {
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card--featured {
+  background: var(--color-surface);
+}
+
+.card__badge {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0 0.7rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--page-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.card__title {
+  display: block;
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Toda la card responde al clic del enlace, sin envolver la acción secundaria. */
+.card__link::after {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  content: "";
+}
+
+.card__link:focus-visible {
+  outline: none;
+}
+
+.card__link:focus-visible::after {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.card__meta,
+.card__summary {
+  margin: 0;
+}
+
+.card__meta {
+  color: var(--color-ink-medium);
+  font-weight: 700;
+}
+
+.card__save {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  margin-block-start: auto;
+}
+
+.catalog__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/*
+ * Barreras deliberadas: toda la card es un enlace que envuelve el botón
+ * «Guardar», y el curso destacado, escrito el último, se sube con `order`
+ * solo en la vista de cuadrícula.
+ */
+.catalog--barrier .card__link--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.catalog--barrier .card__link--wrapper::after {
+  content: none;
+}
+
+.catalog--barrier .card__link--wrapper:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.catalog--barrier .catalog__list--grid .card--featured {
+  order: -1;
+}

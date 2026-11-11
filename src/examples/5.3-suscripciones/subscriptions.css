@@ -1,0 +1,148 @@
+/* Quiosco digital con el lenguaje visual de weAAAre. */
+.subs {
+  --page-accent: var(--color-surface);
+
+  min-block-size: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.subs a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.subs a:hover {
+  background: var(--color-accent);
+}
+
+.subs :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.subs__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: var(--border);
+  background: var(--page-accent);
+}
+
+.subs__header :focus-visible,
+.subs__table thead :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.subs__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.subs__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.subs__main {
+  max-inline-size: 60rem;
+  margin-inline: auto;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.subs h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.subs__intro {
+  margin-block-start: 0;
+  color: var(--color-ink-medium);
+}
+
+.subs__table {
+  inline-size: 100%;
+  min-inline-size: 38rem;
+  border-collapse: collapse;
+}
+
+.subs__table caption {
+  padding: 1rem 1rem 0.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: start;
+}
+
+.subs__table th,
+.subs__table td {
+  padding: 0.6rem 1rem;
+  border-block-end: 1px solid var(--color-rule-soft);
+  text-align: start;
+}
+
+.subs__table thead th {
+  border-block-end: var(--border);
+  background: var(--page-accent);
+  font-weight: 700;
+}
+
+.subs__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.subs__frame {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.subs__table tbody th {
+  font-weight: 700;
+}
+
+.subs__status,
+.subs__empty {
+  min-block-size: 1.6em;
+  font-weight: 700;
+}
+
+.subs__cancel {
+  min-block-size: 2.75rem;
+  padding: 0.25rem 0.9rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.subs__cancel:hover {
+  background: var(--color-accent);
+}
+
+.subs__price {
+  font-variant-numeric: tabular-nums;
+}

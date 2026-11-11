@@ -1,0 +1,144 @@
+/* Polideportivo con el lenguaje visual de weAAAre. */
+.timetable {
+  --page-accent: var(--color-surface);
+
+  min-block-size: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.timetable a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.timetable a:hover {
+  background: var(--color-accent);
+}
+
+.timetable :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.timetable__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: var(--border);
+  background: var(--page-accent);
+}
+
+.timetable__header :focus-visible,
+.timetable__table thead :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.timetable__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.timetable__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.timetable__main {
+  max-inline-size: 60rem;
+  margin-inline: auto;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.timetable h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.timetable__intro {
+  margin-block-start: 0;
+  color: var(--color-ink-medium);
+}
+
+.timetable__table {
+  inline-size: 100%;
+  min-inline-size: 38rem;
+  border-collapse: collapse;
+}
+
+.timetable__table caption {
+  padding: 1rem 1rem 0.5rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: start;
+}
+
+.timetable__table th,
+.timetable__table td {
+  padding: 0.6rem 1rem;
+  border-block-end: 1px solid var(--color-rule-soft);
+  text-align: start;
+}
+
+.timetable__table thead th {
+  border-block-end: var(--border);
+  background: var(--page-accent);
+  font-weight: 700;
+}
+
+.timetable__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.timetable__frame {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.timetable__table tbody th {
+  font-weight: 700;
+}
+
+.timetable__cta {
+  display: inline-block;
+  margin-block-start: 1rem;
+  padding: 0.6rem 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.timetable .timetable__cta {
+  color: var(--color-paper);
+}
+
+.timetable .timetable__cta:hover {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}

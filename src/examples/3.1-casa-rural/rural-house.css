@@ -1,0 +1,210 @@
+/* Casa rural con el lenguaje visual de weAAAre. */
+.rural-house {
+  --page-accent: var(--color-surface);
+
+  min-block-size: 100vh;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.rural-house a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.rural-house a:hover {
+  background: var(--color-accent);
+}
+
+.rural-house :focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.rural-house__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: var(--border);
+  background: var(--page-accent);
+}
+
+.rural-house__header :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.rural-house__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.rural-house__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.rural-house__main {
+  max-inline-size: 48rem;
+  margin-inline: auto;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.rural-house h1,
+.rural-house h2 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.rural-house h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+}
+
+.rural-house__intro {
+  margin-block-start: 0;
+  color: var(--color-ink-medium);
+}
+
+.rural-house__section {
+  margin-block-start: 2.5rem;
+}
+
+.rural-house h2 {
+  margin-block: 0 0.75rem;
+  font-size: 1.75rem;
+}
+
+.rural-house__services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rural-house__services > * {
+  margin: 0;
+  padding: 0.25rem 0.9rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--page-accent);
+}
+
+.rural-house__services span {
+  display: none;
+}
+
+.rural-house__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: paso;
+}
+
+.rural-house__steps > * {
+  position: relative;
+  margin-block: 0.75rem;
+  padding-inline-start: 3rem;
+  counter-increment: paso;
+}
+
+.rural-house__steps > *::before {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  content: counter(paso);
+  font-weight: 700;
+}
+
+.rural-house__facts {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.rural-house__fact {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  border-block-end: 1px solid var(--color-rule-soft);
+}
+
+.rural-house__fact dt {
+  font-weight: 700;
+}
+
+.rural-house__fact dd {
+  margin: 0;
+}
+
+.rural-house__book {
+  display: inline-block;
+  margin-block-start: 1.5rem;
+  padding: 0.6rem 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  box-shadow:
+    0 4px 0 0 var(--page-accent),
+    0 4px 0 2px var(--color-ink);
+  font-weight: 700;
+}
+
+.rural-house .rural-house__book {
+  color: var(--color-paper);
+  text-decoration: none;
+}
+
+.rural-house .rural-house__book:hover {
+  background: var(--color-ink);
+  transform: translateY(2px);
+}
+
+.rural-house__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/*
+ * Barrera deliberada: etiquetas y valores en dos columnas independientes.
+ * Visualmente forman pares; en el orden del documento se leen por separado.
+ */
+.rural-house--barrier .rural-house__facts {
+  grid-template-columns: 9rem 1fr;
+  gap: 0 1rem;
+}
+
+.rural-house--barrier .rural-house__fact-column p {
+  margin: 0;
+  padding-block: 0.5rem;
+  border-block-end: 1px solid var(--color-rule-soft);
+}
+
+.rural-house--barrier .rural-house__term {
+  font-weight: 700;
+}

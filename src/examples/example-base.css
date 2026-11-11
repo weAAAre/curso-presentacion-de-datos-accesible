@@ -1,0 +1,44 @@
+@import "../brand/tokens.css";
+
+/*
+ * Base común de las páginas de ejemplo: papel blanco, tinta negra, bordes de
+ * 2 px y las tipografías de weAAAre. Ninguna página añade colores de marca
+ * propios; solo hay color cuando la lección trata de él. Las barreras
+ * deliberadas viven en el CSS de cada página, bajo su clase `--barrier`.
+ */
+html {
+  color: var(--color-ink);
+  background: var(--color-surface);
+}
+
+body {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* Texto solo para tecnologías asistivas. */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
