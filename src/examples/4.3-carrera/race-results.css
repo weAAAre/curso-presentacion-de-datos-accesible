@@ -43,10 +43,9 @@
 
 .race__brand {
   margin: 0;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .race__nav {
@@ -95,10 +94,9 @@
 
 .race__table caption {
   padding: 1rem 1rem 0.5rem;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   text-align: start;
 }
 

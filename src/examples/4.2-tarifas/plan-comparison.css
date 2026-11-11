@@ -42,10 +42,9 @@
 
 .plans__brand {
   margin: 0;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .plans__nav {
@@ -90,10 +89,9 @@
 
 .plans__table caption {
   padding: 1rem 1rem 0.5rem;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   text-align: start;
 }
 
@@ -107,10 +105,9 @@
 .plans__table thead th {
   border-block-end: var(--border);
   background: var(--page-accent);
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .plans__table thead td {

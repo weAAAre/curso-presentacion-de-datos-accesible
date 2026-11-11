@@ -42,10 +42,9 @@
 
 .rural-house__brand {
   margin: 0;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .rural-house__nav {
@@ -60,11 +59,16 @@
   padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
-.rural-house h1,
-.rural-house h2 {
+.rural-house h1 {
   font-family: var(--font-display);
   font-variation-settings: var(--font-display-settings);
   font-weight: 500;
+  line-height: 1.15;
+}
+
+.rural-house h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
   line-height: 1.15;
 }
 

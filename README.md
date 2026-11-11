@@ -56,12 +56,13 @@ Cada carpeta de `src/examples/` contiene:
 Todos los ejemplos comparten el lenguaje visual de weAAAre para que nada distraiga de lo que enseñan:
 
 - Papel blanco, tinta negra y bordes de 2 px. Sin colores de marca propios en cada página.
+- La tipografía de titulares solo en el título principal; el resto de encabezados, en Atkinson negrita.
 - Sombra desplazada solo en lo que se puede pulsar (botones y tarjetas enlazables).
 - Ámbar solo al pasar el puntero y en el foco.
 - Hay color únicamente cuando la lección trata de él (estados, contraste) y en las ilustraciones que hacen de foto.
 - Nada se mueve solo, salvo en la lección de movimiento.
 
-Los tokens están en `src/brand/tokens.css` y la base común en `src/examples/example-base.css`.
+Los tokens están en `src/brand/tokens.css` y la base común en `src/examples/example-base.css`. La portada y las fichas (`src/app/`) copian la composición de weaaare.com: barra con el logotipo, cabecera con degradado y franja de datos, tarjetas y acordeón.
 
 ## Comprobaciones
 

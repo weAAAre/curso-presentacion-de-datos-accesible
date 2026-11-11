@@ -47,16 +47,16 @@ describe('Ficha de un ejemplo', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: first.name }),
     ).toBeInTheDocument()
-    expect(
-      screen.getByRole('link', { name: 'Abrir la página con barrera' }),
-    ).toHaveAttribute('href', viewUrl(first.slug, 'barrera'))
-    expect(
-      screen.getByRole('link', { name: 'Abrir la página con arreglo' }),
-    ).toHaveAttribute('href', viewUrl(first.slug, 'arreglo'))
+    expect(screen.getByRole('link', { name: 'Con barrera' })).toHaveAttribute(
+      'href',
+      viewUrl(first.slug, 'barrera'),
+    )
+    expect(screen.getByRole('link', { name: 'Con arreglo' })).toHaveAttribute(
+      'href',
+      viewUrl(first.slug, 'arreglo'),
+    )
     for (const fix of first.fixes)
-      expect(
-        screen.getByRole('heading', { level: 3, name: fix.title }),
-      ).toBeInTheDocument()
+      expect(screen.getByText(fix.title)).toBeInTheDocument()
     expect(await axe(container)).toHaveNoViolations()
   })
 })

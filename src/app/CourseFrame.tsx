@@ -1,10 +1,11 @@
 import { type ReactNode, useEffect } from 'react'
 import { BrandMark } from '../brand/BrandMark'
+import logoGradient from '../brand/logo-gradient.svg'
 import { course } from '../course'
 import { homeUrl } from './routes'
 import './app.css'
 
-/** Marco de las pantallas del curso: cabecera con el logotipo y pie. */
+/** Marco de las pantallas del curso: la barra de weAAAre y el contenido. */
 export function CourseFrame({
   title,
   children,
@@ -18,19 +19,15 @@ export function CourseFrame({
 
   return (
     <div className="course">
-      <header className="course__header">
-        <a className="course__home" href={homeUrl}>
+      <header className="course__bar">
+        <a className="course__logo" href={homeUrl}>
+          <img src={logoGradient} alt="" />
           <BrandMark />
-          <span>{course.title}</span>
+          <span className="visually-hidden">: ejemplos del curso</span>
         </a>
+        <p className="course__bar-title">{course.title}</p>
       </header>
       <main className="course__main">{children}</main>
-      <footer className="course__footer">
-        <p>
-          Un curso de <a href="https://weaaare.com">weAAAre</a> con{' '}
-          {course.author}.
-        </p>
-      </footer>
     </div>
   )
 }

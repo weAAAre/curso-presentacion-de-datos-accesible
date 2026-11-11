@@ -42,10 +42,9 @@
 
 .orders__brand {
   margin: 0;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .orders__nav {
@@ -80,10 +79,9 @@
 
 .orders__caption {
   margin-block: 1.5rem 0.75rem;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   text-align: start;
 }
 

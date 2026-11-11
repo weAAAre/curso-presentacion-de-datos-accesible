@@ -1,78 +1,110 @@
+import { course } from '../course'
 import { exampleRegistry } from '../examples/registry'
 import type { ExampleDefinition } from '../examples/types'
 import { CourseFrame } from './CourseFrame'
+import { Hero } from './Hero'
 import { homeUrl, sheetUrl, versions, viewUrl } from './routes'
 
+function Chevron() {
+  return (
+    <svg
+      className="course__chevron"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  )
+}
+
 /**
- * Ficha de un ejemplo: enlaza las dos versiones de la página y explica, fuera
- * de ella, qué probar y qué cambia en el código.
+ * Ficha de un ejemplo: abre las dos versiones de la página y guarda, plegado,
+ * qué probar y qué cambia en el código.
  */
 export function Sheet({ example }: { example: ExampleDefinition }) {
   const index = exampleRegistry.indexOf(example)
   const previous = exampleRegistry[index - 1]
   const next = exampleRegistry[index + 1]
+  const module = course.modules.find(({ number }) =>
+    example.lesson.startsWith(`${number}.`),
+  )
 
   return (
     <CourseFrame title={`${example.name} · Lección ${example.lesson}`}>
-      <p className="course__back">
-        <a href={homeUrl}>Todos los ejemplos</a>
-      </p>
-      <p className="course__eyebrow">
-        Lección {example.lesson} · {example.lessonTitle}
-      </p>
-      <h1>{example.name}</h1>
-      <ul className="course__actions">
-        {versions.map(({ version, label }) => (
-          <li key={version}>
-            <a className="course__button" href={viewUrl(example.slug, version)}>
-              Abrir la página {label.toLowerCase()}
-            </a>
+      <nav className="course__crumbs" aria-label="Migas de pan">
+        <ol>
+          <li>
+            <a href={homeUrl}>Ejemplos</a>
           </li>
-        ))}
-      </ul>
-
-      <section aria-labelledby="pruebalo">
-        <h2 id="pruebalo">Pruébalo</h2>
-        <ol className="course__steps">
-          {example.tryIt.map((step) => (
-            <li key={step}>{step}</li>
-          ))}
+          <li aria-current="page">{example.name}</li>
         </ol>
-      </section>
+      </nav>
+      <Hero
+        label={`Lección ${example.lesson}`}
+        title={example.name}
+        facts={[
+          { label: 'Módulo', value: module?.title },
+          { label: 'Lección', value: example.lessonTitle },
+          { label: 'Cambios', value: example.fixes.length },
+        ]}
+      />
 
-      <section aria-labelledby="que-cambia">
-        <h2 id="que-cambia">Qué cambia</h2>
-        <ol className="course__fixes">
-          {example.fixes.map((fix, position) => (
-            <li key={fix.id} className="course__fix">
-              <h3>
-                <span className="course__number" aria-hidden="true">
-                  {position + 1}
-                </span>
-                {fix.title}
-              </h3>
-              <dl className="course__details">
-                <dt>Dónde</dt>
-                <dd>{fix.where}</dd>
-                <dt>Problema</dt>
-                <dd>{fix.problem}</dd>
-                <dt>Solución</dt>
-                <dd>{fix.solution}</dd>
-              </dl>
-              <div className="course__code-pair">
-                {versions.map(({ version, fixed, label }) => (
-                  <figure key={version} className="course__code">
-                    <figcaption>{label}</figcaption>
-                    <pre>
-                      <code>{fixed ? fix.after : fix.before}</code>
-                    </pre>
-                  </figure>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
+      <div className="course__columns">
+        <section className="course__panel" aria-labelledby="que-cambia">
+          <h2 id="que-cambia">Qué cambia</h2>
+          <div className="course__accordion">
+            {example.fixes.map((fix) => (
+              <details key={fix.id} name="cambio">
+                <summary>
+                  <span>{fix.title}</span>
+                  <Chevron />
+                </summary>
+                <div className="course__fix">
+                  <p>{fix.problem}</p>
+                  <p>{fix.solution}</p>
+                  <div className="course__code-pair">
+                    {versions.map(({ version, fixed, label }) => (
+                      <figure key={version} className="course__code">
+                        <figcaption>{label}</figcaption>
+                        <pre>
+                          <code>{fixed ? fix.after : fix.before}</code>
+                        </pre>
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <aside className="course__side" aria-labelledby="abrir">
+          <div className="course__side-block">
+            <h2 id="abrir">Abrir la página</h2>
+            <ul className="course__actions">
+              {versions.map(({ version, fixed, label }) => (
+                <li key={version}>
+                  <a
+                    className={`course__button${fixed ? ' course__button--cta' : ''}`}
+                    href={viewUrl(example.slug, version)}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="course__side-block">
+            <h2>Pruébalo</h2>
+            <ol className="course__steps">
+              {example.tryIt.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        </aside>
+      </div>
 
       {(previous || next) && (
         <nav className="course__pager" aria-label="Otros ejemplos">
