@@ -31,11 +31,11 @@ pnpm install
 pnpm dev
 ```
 
-| Dirección             | Qué ves                                            |
-| --------------------- | -------------------------------------------------- |
-| `/`                   | La lista de webs de ejemplo                        |
-| `/<ejemplo>/`         | La web con sus barreras, sin nada más en pantalla  |
-| `/<ejemplo>/arreglo/` | La misma web ya arreglada                          |
+| Dirección             | Qué ves                                           |
+| --------------------- | ------------------------------------------------- |
+| `/`                   | La lista de webs de ejemplo                       |
+| `/<ejemplo>/`         | La web con sus barreras, sin nada más en pantalla |
+| `/<ejemplo>/arreglo/` | La misma web ya arreglada                         |
 
 Las webs no llevan ningún elemento del curso: lo que inspecciones en el DOM, en el árbol de accesibilidad o con el tabulador es solo de la web.
 
