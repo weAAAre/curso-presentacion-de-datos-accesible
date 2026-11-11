@@ -46,7 +46,10 @@ export function PlanComparison({ fixed }: ExamplePageProps) {
   return (
     <div className={`plans${fixed ? '' : ' plans--barrier'}`}>
       <header className="plans__header">
-        <p className="plans__brand">Onda Fibra</p>
+        <p className="plans__brand">
+          <span aria-hidden="true" className="plans__logo" />
+          Onda Fibra
+        </p>
         <nav aria-label="Principal" className="plans__nav">
           <a href={`#${id}-main`}>Tarifas</a>
           <a href={`#${id}-main`}>Cobertura</a>
@@ -54,10 +57,13 @@ export function PlanComparison({ fixed }: ExamplePageProps) {
         </nav>
       </header>
       <main id={`${id}-main`} className="plans__main">
-        <h1>Compara nuestras tarifas</h1>
-        <p className="plans__intro">
-          Fibra y móvil en una sola factura. Precios con IVA incluido.
-        </p>
+        <div className="plans__hero">
+          <p className="plans__kicker">Fibra y móvil</p>
+          <h1>Compara nuestras tarifas</h1>
+          <p className="plans__intro">
+            Fibra y móvil en una sola factura. Precios con IVA incluido.
+          </p>
+        </div>
         <div
           className="plans__scroll"
           role="region"

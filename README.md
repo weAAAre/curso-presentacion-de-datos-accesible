@@ -31,14 +31,13 @@ pnpm install
 pnpm dev
 ```
 
-| Dirección             | Qué ves                                                    |
-| --------------------- | ---------------------------------------------------------- |
-| `/`                   | Todos los ejemplos, por módulo                             |
-| `/<ejemplo>/`         | La ficha del ejemplo: qué probar y qué cambia en el código |
-| `/<ejemplo>/barrera/` | La página con la barrera, sin nada más en pantalla         |
-| `/<ejemplo>/arreglo/` | La página con el arreglo, sin nada más en pantalla         |
+| Dirección             | Qué ves                                            |
+| --------------------- | -------------------------------------------------- |
+| `/`                   | La lista de webs de ejemplo                        |
+| `/<ejemplo>/`         | La web con sus barreras, sin nada más en pantalla  |
+| `/<ejemplo>/arreglo/` | La misma web ya arreglada                          |
 
-Las páginas con la barrera y con el arreglo no llevan ningún elemento del curso: lo que inspecciones en el DOM, en el árbol de accesibilidad o con el tabulador es solo de la página.
+Las webs no llevan ningún elemento del curso: lo que inspecciones en el DOM, en el árbol de accesibilidad o con el tabulador es solo de la web.
 
 ## Cómo está hecho cada ejemplo
 
@@ -46,23 +45,16 @@ Cada carpeta de `src/examples/` contiene:
 
 - `Página.tsx`: el componente. Recibe `fixed`: con `false` dibuja la barrera y con `true`, el arreglo.
 - `página.css`: sus estilos. Las barreras que dependen del CSS están al final, bajo la clase `--barrier`.
-- `Página.example.ts`: la ficha (lección, pasos para probarlo y cada cambio con su código antes y después).
+- `Página.example.ts`: la clave (lección, pasos para probarlo y cada cambio con su código antes y después). No se muestra en la web.
 - `Página.test.tsx`: las pruebas de las dos versiones.
 
 `src/examples/registry.ts` registra los ejemplos en el orden del curso.
 
 ## Estilo de los ejemplos
 
-Todos los ejemplos comparten el lenguaje visual de weAAAre para que nada distraiga de lo que enseñan:
+Cada ejemplo es la web de una empresa ficticia, con su marca, sus colores y contenido verosímil, como las webs de práctica de [retos.weaaare.com](https://retos.weaaare.com). Con ratón todo funciona; fuera de las barreras que enseña la lección, todo es accesible.
 
-- Papel blanco, tinta negra y bordes de 2 px. Sin colores de marca propios en cada página.
-- La tipografía de titulares solo en el título principal; el resto de encabezados, en Atkinson negrita.
-- Sombra desplazada solo en lo que se puede pulsar (botones y tarjetas enlazables).
-- Ámbar solo al pasar el puntero y en el foco.
-- Hay color únicamente cuando la lección trata de él (estados, contraste) y en las ilustraciones que hacen de foto.
-- Nada se mueve solo, salvo en la lección de movimiento.
-
-Los tokens están en `src/brand/tokens.css` y la base común en `src/examples/example-base.css`. La portada y las fichas (`src/app/`) copian la composición de weaaare.com: barra con el logotipo, cabecera con degradado y franja de datos, tarjetas y acordeón.
+La portada (`src/app/`) sigue la de retos.weaaare.com y usa los tokens de weAAAre de `src/brand/tokens.css`.
 
 ## Comprobaciones
 

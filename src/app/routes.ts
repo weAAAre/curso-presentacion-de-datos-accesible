@@ -1,25 +1,15 @@
 const base = import.meta.env.BASE_URL
 
-export type Version = 'barrera' | 'arreglo'
-
-export const versions: { version: Version; fixed: boolean; label: string }[] = [
-  { version: 'barrera', fixed: false, label: 'Con barrera' },
-  { version: 'arreglo', fixed: true, label: 'Con arreglo' },
-]
-
-/** Portada: todos los ejemplos del curso. */
+/** Portada: todas las webs de ejemplo del curso. */
 export const homeUrl = base
 
-/** Ficha de un ejemplo: qué probar y qué cambia. */
-export const sheetUrl = (slug: string) => `${base}${slug}/`
-
-/** La página de ejemplo sola, con la barrera o con el arreglo. */
-export const viewUrl = (slug: string, version: Version) =>
-  `${base}${slug}/${version}/`
+/** La web de ejemplo: con sus barreras o, en `/arreglo/`, ya arreglada. */
+export const siteUrl = (slug: string, fixed = false) =>
+  `${base}${slug}/${fixed ? 'arreglo/' : ''}`
 
 export interface Route {
   slug?: string
-  version?: Version
+  fixed: boolean
   /** Hay más segmentos de los que la ruta conoce. */
   extra: boolean
 }
@@ -28,10 +18,11 @@ export function parseRoute(pathname: string): Route {
   const path = decodeURIComponent(pathname)
   const inside = path.startsWith(base) ? path.slice(base.length) : path
   const [slug, version, ...rest] = inside.split('/').filter(Boolean)
-  const known = versions.some((item) => item.version === version)
+  // `/barrera/` es la dirección antigua de la web con barreras.
+  const known = [undefined, 'barrera', 'arreglo'].includes(version)
   return {
     slug,
-    version: known ? (version as Version) : undefined,
-    extra: rest.length > 0 || (version !== undefined && !known),
+    fixed: version === 'arreglo',
+    extra: rest.length > 0 || !known,
   }
 }
