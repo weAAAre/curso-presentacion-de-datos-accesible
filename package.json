@@ -42,5 +42,16 @@
   "description": "Ejemplos del curso «Presentación de datos accesible» de weAAAre.",
   "engines": {
     "node": ">=22.12.0"
-  }
+  },
+  "license": "MIT",
+  "author": "weAAAre (https://weaaare.com)",
+  "contributors": [
+    "Jesús González Álvarez"
+  ],
+  "homepage": "https://weaaare.github.io/curso-presentacion-de-datos-accesible/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weAAAre/curso-presentacion-de-datos-accesible.git"
+  },
+  "bugs": "https://github.com/weAAAre/curso-presentacion-de-datos-accesible/issues"
 }
