@@ -1,0 +1,363 @@
+/* Resto de la web del polideportivo. Usa la paleta declarada en .timetable. */
+.timetable-site__glyph {
+  flex: none;
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.timetable-site__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timetable-site__facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+  font-size: 0.9375rem;
+}
+
+.timetable-site__facts .timetable-site__glyph {
+  color: var(--teal);
+}
+
+.timetable-site__pool {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 1.5rem;
+  box-shadow:
+    0 2px 4px rgb(6 71 77 / 0.08),
+    0 18px 40px rgb(6 71 77 / 0.18);
+}
+
+.timetable-site__pool-number {
+  fill: #06474d;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Secciones después de la tabla. */
+.timetable-site__more {
+  display: grid;
+  gap: clamp(3.5rem, 7vw, 5rem);
+  max-inline-size: min(72rem, 100% - 2rem);
+  margin: clamp(3.5rem, 7vw, 5rem) auto;
+}
+
+.timetable-site__more h2 {
+  margin: 0 0 0.5rem;
+  color: var(--teal-dark);
+  font-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.125rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.timetable-site__lead {
+  max-inline-size: 40rem;
+  margin: 0 0 1.5rem;
+  color: var(--ink-soft);
+}
+
+.timetable-site__prices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timetable-site__price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: #fff;
+}
+
+.timetable-site__price--featured {
+  border: 2px solid var(--teal);
+  box-shadow: 0 14px 30px rgb(6 71 77 / 0.12);
+}
+
+.timetable-site__badge {
+  align-self: start;
+  margin: 0 0 0.25rem;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  background: var(--sun);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.timetable-site__price h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.timetable-site__amount {
+  margin: 0.25rem 0 0;
+  color: var(--ink-soft);
+}
+
+.timetable-site__amount strong {
+  color: var(--teal-dark);
+  font-size: 2.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.timetable-site__price-note {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.timetable-site__perks {
+  display: grid;
+  flex: 1;
+  align-content: start;
+  gap: 0.4rem;
+  margin: 0.75rem 0 1rem;
+  padding: 0.85rem 0 0;
+  border-block-start: 1px solid var(--line);
+  list-style: none;
+}
+
+.timetable-site__perks li {
+  position: relative;
+  padding-inline-start: 1.6rem;
+}
+
+.timetable-site__perks li::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0.35em;
+  inset-inline-start: 0;
+  inline-size: 1rem;
+  block-size: 1rem;
+  border-radius: 50%;
+  background:
+    var(--aqua)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2306474d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 8.5 2.2 2.2 4.8-5'/%3E%3C/svg%3E")
+    50% / 0.9rem no-repeat;
+}
+
+.timetable-site__small {
+  max-inline-size: 48rem;
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.timetable-site__rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timetable-site__room {
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(6 71 77 / 0.06),
+    0 10px 24px rgb(6 71 77 / 0.08);
+}
+
+.timetable-site__room-art {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.timetable-site__room h3 {
+  margin: 1.1rem 1.25rem 0.25rem;
+  font-size: 1.1875rem;
+}
+
+.timetable-site__room p {
+  margin: 0 1.25rem 1.25rem;
+  color: var(--ink-soft);
+}
+
+.timetable-site__split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.25rem;
+}
+
+.timetable-site__rules,
+.timetable-site__visit {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border-radius: 1.25rem;
+}
+
+.timetable-site__rules {
+  background: var(--aqua);
+}
+
+.timetable-site__visit {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.timetable-site__rules ul,
+.timetable-site__visit ul {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.timetable-site__rules li,
+.timetable-site__visit li {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.timetable-site__rules li .timetable-site__glyph,
+.timetable-site__visit li .timetable-site__glyph {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: var(--teal);
+}
+
+.timetable-site__visit li .timetable-site__glyph {
+  background: var(--aqua);
+}
+
+.timetable-site__rules li span,
+.timetable-site__visit li span {
+  display: grid;
+  color: var(--ink-soft);
+}
+
+.timetable-site__rules strong,
+.timetable-site__visit strong {
+  color: var(--ink);
+}
+
+/* Pie de página. */
+.timetable-site__footer {
+  padding: clamp(2.5rem, 6vw, 4rem) var(--gutter) 1.5rem;
+  background: var(--teal-dark);
+  color: #e6f4f3;
+  font-size: 0.9375rem;
+}
+
+.timetable-site__footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+  max-inline-size: 72rem;
+  margin-inline: auto;
+}
+
+.timetable-site__footer p {
+  margin: 0 0 0.75rem;
+}
+
+.timetable-site__footer .timetable-site__footer-brand {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.timetable-site__footer h2 {
+  margin: 0 0 0.75rem;
+  color: var(--sun);
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.timetable-site__footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+}
+
+.timetable-site__footer ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timetable .timetable-site__footer a {
+  color: #fff;
+  font-weight: 400;
+  text-decoration-color: rgb(255 255 255 / 0.5);
+}
+
+.timetable .timetable-site__footer a:hover {
+  color: var(--sun);
+  text-decoration-color: currentcolor;
+}
+
+.timetable .timetable-site__footer :focus-visible {
+  outline-color: var(--sun);
+}
+
+.timetable-site__footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timetable-site__footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  max-inline-size: 72rem;
+  margin: 2.5rem auto 0;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid rgb(255 255 255 / 0.2);
+  color: #cfe6e4;
+}
+
+.timetable-site__footer-legal p {
+  flex: 1 1 24rem;
+  margin: 0;
+}
+
+.timetable-site__footer-legal nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+@media (max-width: 52rem) {
+  .timetable-site__footer-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -81,12 +81,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
+  margin-inline-end: auto;
 }
 
 .subs .subs__nav a {
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
   text-decoration: none;
+}
+
+.subs .subs__nav a[aria-current="page"] {
+  background: var(--ink);
+  color: var(--yellow);
 }
 
 .subs .subs__nav a:hover {
@@ -98,7 +104,7 @@
 .subs__main {
   max-inline-size: min(68rem, 100% - 2rem);
   margin-inline: auto;
-  padding-block: clamp(2rem, 5vw, 3.5rem) 4rem;
+  padding-block: clamp(2rem, 5vw, 3.5rem) 0;
 }
 
 .subs__account {
@@ -295,18 +301,6 @@
   text-align: center;
 }
 
-.subs__main > p:last-child {
+.subs__all {
   margin-block: 1.5rem 0;
-}
-
-.subs__footer {
-  padding: 1.5rem var(--gutter);
-  background: var(--ink);
-  color: #ece6d8;
-  font-size: 0.9375rem;
-  text-align: center;
-}
-
-.subs__footer p {
-  margin: 0;
 }

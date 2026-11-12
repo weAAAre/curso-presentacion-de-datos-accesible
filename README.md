@@ -58,7 +58,7 @@ Cada carpeta de `src/examples/` contiene:
 
 Cada ejemplo es la web de una empresa ficticia, con su marca, sus colores y contenido verosímil, como las webs de práctica de [retos.weaaare.com](https://retos.weaaare.com). Con ratón todo funciona; fuera de las barreras que enseña la lección, todo es accesible. No llevan dependencias ni recursos externos y nada se mueve solo.
 
-La portada (`src/app/`) sigue la de retos.weaaare.com y usa los tokens de weAAAre de `src/brand/tokens.css`. La web no se indexa en buscadores, porque contiene barreras a propósito.
+La portada (`src/app/`) usa el lenguaje visual de weaaare.com (tokens en `src/brand/tokens.css`) y enseña una captura de cada web, que se regenera con `pnpm thumbnails`. La web no se indexa en buscadores, porque contiene barreras a propósito.
 
 ## Comprobaciones
 

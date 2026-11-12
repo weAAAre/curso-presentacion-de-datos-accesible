@@ -23,7 +23,8 @@ pnpm dev
 
 1. Crea la carpeta `src/examples/<lección>-<slug>/` con el componente, su CSS, su `*.example.ts` y sus pruebas. Lo más rápido es copiar un ejemplo parecido.
 2. Añádelo a `src/examples/registry.ts`, en el orden del curso, y a la tabla del README.
-3. Ejecuta `pnpm check`.
+3. Ejecuta `pnpm thumbnails` para capturar su portada del índice (la primera vez, `pnpm exec playwright install chromium`).
+4. Ejecuta `pnpm check`.
 
 ## Antes de subir
 

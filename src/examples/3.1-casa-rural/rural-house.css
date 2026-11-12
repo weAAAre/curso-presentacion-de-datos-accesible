@@ -36,6 +36,21 @@
   outline-offset: 3px;
 }
 
+.rural-house__topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding: 0.4rem clamp(1rem, 5vw, 4rem);
+  background: var(--pine-dark);
+  color: #e8eee3;
+  font-size: 0.875rem;
+}
+
+.rural-house__topbar p {
+  margin: 0;
+}
+
 .rural-house__header {
   display: flex;
   flex-wrap: wrap;
@@ -72,7 +87,8 @@
 .rural-house__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.75rem;
+  align-items: center;
+  gap: 0.5rem 1.75rem;
 }
 
 .rural-house .rural-house__nav a {
@@ -84,6 +100,32 @@
 .rural-house .rural-house__nav a:hover {
   color: var(--pine);
   text-decoration: underline;
+}
+
+.rural-house .rural-house__nav .rural-house__nav-cta {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  background: var(--pine);
+  color: #fff;
+  font-weight: 700;
+}
+
+.rural-house .rural-house__nav .rural-house__nav-cta:hover {
+  background: var(--pine-dark);
+  color: #fff;
+}
+
+.rural-house__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-end: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.rural-house .rural-house__crumbs a {
+  font-weight: 400;
 }
 
 .rural-house__main {
@@ -138,6 +180,21 @@
 
 .rural-house__price strong {
   font-size: 1.25rem;
+}
+
+.rural-house__rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.6rem;
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.rural-house__stars {
+  color: var(--honey-ink);
+  letter-spacing: 0.1em;
 }
 
 .rural-house__art {
@@ -305,16 +362,235 @@
   color: #fff;
 }
 
+/* Galería: tres escenas de la casa, la primera más grande. */
+.rural-house__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1.25rem;
+  margin-block-start: clamp(3rem, 7vw, 5rem);
+}
+
+@media (min-width: 60rem) {
+  .rural-house__gallery {
+    grid-template-columns: 1.1fr 1.4fr 1fr;
+  }
+
+  .rural-house__gallery-intro {
+    align-self: center;
+  }
+}
+
+.rural-house__gallery-intro p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.rural-house__photo {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.rural-house__photo svg {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgb(29 51 34 / 0.12);
+}
+
+.rural-house__photo figcaption {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 60rem) {
+  .rural-house__photo--wide {
+    grid-row: span 2;
+    grid-template-rows: 1fr auto;
+  }
+
+  .rural-house__photo--wide svg {
+    block-size: 100%;
+  }
+
+  .rural-house__gallery-intro {
+    grid-row: span 2;
+  }
+}
+
+/* Opiniones y anfitriones. */
+.rural-house__trust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.5rem;
+  margin-block-start: clamp(3rem, 7vw, 5rem);
+}
+
+.rural-house__review,
+.rural-house__hosts {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 1.25rem;
+}
+
+.rural-house__review {
+  background: var(--moss);
+}
+
+.rural-house__hosts {
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.rural-house__score {
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+}
+
+.rural-house__score strong {
+  color: var(--pine-dark);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.rural-house__review figure {
+  margin: 0;
+}
+
+.rural-house__review blockquote {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  border-inline-start: 4px solid var(--honey);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.rural-house__quote-text {
+  margin: 0;
+}
+
+.rural-house__review figcaption {
+  margin-block-start: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.rural-house__hosts p {
+  margin: 0 0 1rem;
+}
+
+.rural-house__hosts p:last-child {
+  margin-block-end: 0;
+}
+
+.rural-house__host {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.rural-house__host > span:last-child {
+  display: grid;
+  line-height: 1.35;
+}
+
+.rural-house__host > span:last-child span {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.rural-house__host-avatar {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  inline-size: 3.25rem;
+  block-size: 3.25rem;
+  border-radius: 50%;
+  background: #f2dfb8;
+  color: var(--honey-ink);
+  font-weight: 700;
+}
+
 .rural-house__footer {
-  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  padding: 2.5rem clamp(1rem, 5vw, 4rem) 1.5rem;
   background: var(--pine-dark);
   color: #dfe7da;
   font-size: 0.9375rem;
-  text-align: center;
 }
 
-.rural-house__footer p {
+.rural-house__footer :focus-visible {
+  outline-color: #f3d79a;
+}
+
+.rural-house__footer-grid,
+.rural-house__legal {
+  max-inline-size: 76rem;
+  margin-inline: auto;
+}
+
+.rural-house__footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 2rem;
+}
+
+.rural-house__footer address,
+.rural-house__footer p:not([class]),
+.rural-house__legal p {
   margin: 0;
+  font-style: normal;
+}
+
+.rural-house__footer-brand {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.rural-house__footer-title {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.rural-house__footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.rural-house .rural-house__footer a {
+  color: #f1f5ee;
+  font-weight: 400;
+}
+
+.rural-house .rural-house__footer a:hover {
+  color: #fff;
+}
+
+.rural-house__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-block-start: 2rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid #3b5a40;
+}
+
+.rural-house__footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
 }
 
 /*

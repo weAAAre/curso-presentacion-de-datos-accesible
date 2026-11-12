@@ -29,12 +29,26 @@
   outline-offset: 3px;
 }
 
+.catalog__topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding: 0.4rem clamp(1rem, 5vw, 4rem);
+  background: var(--navy);
+  color: #e6eaf1;
+  font-size: 0.875rem;
+}
+
+.catalog__topbar p {
+  margin: 0;
+}
+
 .catalog__header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
+  gap: 1rem 2.5rem;
   padding: 1rem clamp(1rem, 5vw, 4rem);
   border-block-end: 1px solid var(--line);
   background: var(--card);
@@ -53,6 +67,7 @@
 
 /* Marca: la torre de un faro, a franjas rojas y blancas. */
 .catalog__logo {
+  flex: none;
   inline-size: 1.25rem;
   block-size: 2rem;
   border-radius: 0.3rem 0.3rem 0.15rem 0.15rem;
@@ -66,12 +81,22 @@
 }
 
 .catalog__nav {
+  flex: 1 1 28rem;
+}
+
+.catalog__nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.75rem;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .catalog .catalog__nav a {
+  display: inline-block;
+  padding-block: 0.3rem;
+  border-block-end: 3px solid transparent;
   color: var(--navy);
   font-weight: 400;
   text-decoration: none;
@@ -80,6 +105,104 @@
 .catalog .catalog__nav a:hover {
   color: var(--coral-dark);
   text-decoration: underline;
+}
+
+.catalog .catalog__nav [aria-current="page"] {
+  border-block-end-color: var(--coral);
+  font-weight: 700;
+}
+
+.catalog .catalog__account {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.catalog .catalog__account:hover {
+  text-decoration: underline;
+}
+
+.catalog__avatar {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 50%;
+  background: var(--shell);
+  color: var(--coral-dark);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.catalog__crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  list-style: none;
+}
+
+.catalog__crumbs li + li::before {
+  margin-inline-end: 0.5rem;
+  content: "/";
+}
+
+.catalog .catalog__crumbs a {
+  font-weight: 400;
+}
+
+.catalog__hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  align-items: end;
+  gap: 1.5rem 3rem;
+}
+
+.catalog__kicker {
+  margin: 0 0 0.5rem;
+  color: var(--coral-dark);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.catalog__perks {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  list-style: none;
+}
+
+.catalog__perks li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.catalog__perks svg {
+  flex: none;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  padding: 0.45rem;
+  border-radius: 50%;
+  background: var(--shell);
+  fill: none;
+  stroke: var(--coral-dark);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .catalog__main {
@@ -182,61 +305,11 @@
 /* Portada decorativa de cada curso. */
 .card__cover {
   display: block;
+  inline-size: calc(100% + 3rem);
   block-size: 7.5rem;
   margin: -1.25rem -1.5rem 0.5rem;
   border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
   background-color: #e9edf3;
-}
-
-.card__cover--excel {
-  background:
-    linear-gradient(to top, #2f7d4f 0 40%, transparent 0) 58% 100% / 12% 70%
-    no-repeat,
-    linear-gradient(to top, #2f7d4f 0 70%, transparent 0) 72% 100% / 12% 70%
-    no-repeat,
-    linear-gradient(to top, #2f7d4f 0 100%, transparent 0) 86% 100% / 12% 70%
-    no-repeat,
-    repeating-linear-gradient(to right, #b9dcc4 0 1px, transparent 1px 2.5rem),
-    repeating-linear-gradient(to bottom, #b9dcc4 0 1px, transparent 1px 1.5rem),
-    #e3f2e8;
-}
-
-.card__cover--fotografia {
-  background:
-    radial-gradient(
-      circle at 70% 55%,
-      #3b2a1a 0 12%,
-      #f2a541 12% 20%,
-      #fff3df 20% 24%,
-      transparent 24%
-    ),
-    linear-gradient(160deg, #fde3bf, #f8c98b);
-}
-
-.card__cover--ingles {
-  background:
-    radial-gradient(circle at 78% 38%, #fff 0 9%, transparent 9.5%),
-    radial-gradient(circle at 70% 44%, #fff 0 10%, transparent 10.5%),
-    radial-gradient(circle at 86% 46%, #fff 0 8%, transparent 8.5%),
-    repeating-linear-gradient(
-      -45deg,
-      #c4323f 0 0.6rem,
-      #dce8fb 0.6rem 1.2rem,
-      #1b4e9b 1.2rem 1.8rem,
-      #dce8fb 1.8rem 2.4rem
-    )
-    0 100% / 100% 0.6rem no-repeat,
-    linear-gradient(#bcd4f6, #dce8fb);
-}
-
-.card__cover--huerto {
-  background:
-    radial-gradient(ellipse 14% 30% at 30% 70%, #4f8a3c 98%, transparent),
-    radial-gradient(ellipse 14% 30% at 44% 62%, #6aa84f 98%, transparent),
-    radial-gradient(ellipse 14% 30% at 58% 70%, #4f8a3c 98%, transparent),
-    radial-gradient(ellipse 12% 26% at 72% 64%, #6aa84f 98%, transparent),
-    linear-gradient(to top, #8a5a3b 0 22%, transparent 22%),
-    linear-gradient(#f1f6e6, #dfeccb);
 }
 
 .card__badge {
@@ -352,17 +425,172 @@
   align-self: flex-start;
 }
 
-.catalog__footer {
-  padding: 1.5rem clamp(1rem, 5vw, 4rem);
-  border-block-start: 1px solid var(--line);
-  background: var(--card);
-  color: var(--ink-soft);
-  font-size: 0.9375rem;
-  text-align: center;
+/* Después del catálogo: una opinión y la ayuda para elegir. */
+.catalog__after {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.5rem;
+  margin-block-start: 3.5rem;
 }
 
-.catalog__footer p {
+.catalog__quote {
   margin: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.catalog__quote blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.3125rem;
+  line-height: 1.45;
+}
+
+.catalog__quote blockquote::before {
+  display: block;
+  block-size: 2rem;
+  color: var(--coral);
+  content: "“";
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.catalog__quote-text {
+  margin: 0;
+}
+
+.catalog__quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block-start: 1.25rem;
+}
+
+.catalog__quote figcaption > span:last-child {
+  display: grid;
+  line-height: 1.35;
+}
+
+.catalog__quote figcaption > span:last-child span {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.catalog__advice {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius);
+  background: var(--shell);
+}
+
+.catalog__advice-text {
+  margin: 0 0 1rem;
+}
+
+.catalog__advice-lead {
+  color: var(--coral-dark);
+}
+
+.catalog__advice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.catalog .catalog__button {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: var(--coral-dark);
+  color: #fff;
+  text-decoration: none;
+}
+
+.catalog .catalog__button:hover {
+  background: #7d1b26;
+  text-decoration: underline;
+}
+
+.catalog__footer {
+  padding: 2.5rem clamp(1rem, 5vw, 4rem) 1.5rem;
+  background: var(--navy);
+  color: #d9dfe9;
+  font-size: 0.9375rem;
+}
+
+.catalog__footer :focus-visible {
+  outline-color: #ffb3b9;
+}
+
+.catalog__footer-grid,
+.catalog__legal {
+  max-inline-size: 76rem;
+  margin-inline: auto;
+}
+
+.catalog__footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 2rem;
+}
+
+.catalog__footer .catalog__brand {
+  margin-block-end: 0.75rem;
+  color: #fff;
+  font-size: 1.375rem;
+}
+
+.catalog__footer-text,
+.catalog__footer address {
+  margin: 0;
+  font-style: normal;
+}
+
+.catalog__footer-title {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.catalog__footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.catalog .catalog__footer a {
+  color: #eef1f6;
+  font-weight: 400;
+}
+
+.catalog .catalog__footer a:hover {
+  color: #fff;
+}
+
+.catalog__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-block-start: 2rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid #34465f;
+}
+
+.catalog__legal p {
+  margin: 0;
+}
+
+.catalog__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
 }
 
 /*

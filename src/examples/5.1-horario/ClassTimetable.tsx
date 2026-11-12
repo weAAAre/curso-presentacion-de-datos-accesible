@@ -1,6 +1,12 @@
 import { useId } from 'react'
 import type { ExamplePageProps } from '../types'
 import './class-timetable.css'
+import {
+  PoolArt,
+  TimetableExtras,
+  TimetableFacts,
+  TimetableFooter,
+} from './TimetableSite'
 
 const classes = [
   { name: 'Yoga', day: 'Lunes y miércoles', time: '09:30', room: 'Sala 2' },
@@ -23,9 +29,13 @@ export function ClassTimetable({ fixed }: ExamplePageProps) {
   return (
     <div className={`timetable${fixed ? '' : ' timetable--barrier'}`}>
       <header className="timetable__header">
-        <p className="timetable__council">
-          Ayuntamiento de Las Eras · Concejalía de Deportes
-        </p>
+        <div className="timetable__council">
+          <p>Ayuntamiento de Las Eras · Concejalía de Deportes</p>
+          <p className="timetable__open">
+            <span aria-hidden="true" className="timetable__open-dot" />
+            Abierto hoy de 7:00 a 23:00
+          </p>
+        </div>
         <p className="timetable__brand">
           <svg
             aria-hidden="true"
@@ -39,7 +49,9 @@ export function ClassTimetable({ fixed }: ExamplePageProps) {
           Polideportivo Las Eras
         </p>
         <nav aria-label="Principal" className="timetable__nav">
-          <a href={`#${id}-main`}>Horario</a>
+          <a href={`#${id}-main`} aria-current="page">
+            Horario
+          </a>
           <a href={`#${id}-main`}>Tarifas</a>
           <a href={`#${id}-main`}>Contacto</a>
         </nav>
@@ -53,37 +65,9 @@ export function ClassTimetable({ fixed }: ExamplePageProps) {
               Todas las clases duran 50 minutos. Las plazas se reservan con un
               día de antelación.
             </p>
+            <TimetableFacts />
           </div>
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            viewBox="0 0 320 180"
-            className="timetable__art"
-          >
-            <rect
-              width="320"
-              height="180"
-              rx="24"
-              className="timetable__art-water"
-            />
-            <path
-              className="timetable__art-lane"
-              d="M0 45h320M0 90h320M0 135h320"
-            />
-            <path
-              className="timetable__art-wave"
-              d="M24 70c12-8 24-8 36 0s24 8 36 0 24-8 36 0M150 118c12-8 24-8 36 0s24 8 36 0 24-8 36 0"
-            />
-            <circle cx="262" cy="46" r="20" className="timetable__art-sun" />
-            <rect
-              x="34"
-              y="104"
-              width="54"
-              height="40"
-              rx="10"
-              className="timetable__art-mat"
-            />
-          </svg>
+          <PoolArt />
         </div>
         <div className="timetable__content">
           <div className="timetable__frame">
@@ -127,10 +111,9 @@ export function ClassTimetable({ fixed }: ExamplePageProps) {
             </p>
           </div>
         </div>
+        <TimetableExtras main={`#${id}-main`} />
       </main>
-      <footer className="timetable__footer">
-        <p>Polideportivo Las Eras · Información de demostración</p>
-      </footer>
+      <TimetableFooter main={`#${id}-main`} />
     </div>
   )
 }

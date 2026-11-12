@@ -42,12 +42,35 @@
 }
 
 .timetable__council {
+  display: flex;
   flex: 0 0 calc(100% + 2 * var(--gutter));
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
   margin: 0 calc(-1 * var(--gutter));
   padding: 0.4rem var(--gutter);
   background: var(--teal-dark);
   color: #e6f4f3;
   font-size: 0.875rem;
+}
+
+.timetable__council p {
+  margin: 0;
+}
+
+.timetable__open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* El punto acompaña al texto «Abierto hoy». */
+.timetable__open-dot {
+  inline-size: 0.6rem;
+  block-size: 0.6rem;
+  border-radius: 50%;
+  background: #7ee0a5;
+  box-shadow: 0 0 0 3px rgb(126 224 165 / 0.25);
 }
 
 .timetable__brand {
@@ -91,13 +114,20 @@
   text-decoration: none;
 }
 
+.timetable .timetable__nav a[aria-current="page"] {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.45em;
+}
+
 .timetable .timetable__nav a:hover {
   color: var(--teal);
   text-decoration: underline;
 }
 
 .timetable__main {
-  padding-block-end: 4rem;
+  padding-block-end: 0;
 }
 
 .timetable__hero {
@@ -135,41 +165,6 @@
   margin: 0;
   color: var(--ink-soft);
   font-size: 1.25rem;
-}
-
-.timetable__art {
-  display: block;
-  inline-size: 100%;
-  block-size: auto;
-  border-radius: 1.5rem;
-  box-shadow: 0 16px 36px rgb(6 71 77 / 0.16);
-}
-
-.timetable__art-water {
-  fill: #3aa6ae;
-}
-
-.timetable__art-lane {
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 10 8;
-  stroke-width: 3;
-  opacity: 0.75;
-}
-
-.timetable__art-wave {
-  fill: none;
-  stroke: var(--water);
-  stroke-width: 5;
-  stroke-linecap: round;
-}
-
-.timetable__art-sun {
-  fill: var(--sun);
-}
-
-.timetable__art-mat {
-  fill: var(--coral);
 }
 
 .timetable__content {
@@ -301,24 +296,12 @@
   background: var(--teal-dark);
 }
 
-.timetable__footer {
-  padding: 1.5rem var(--gutter);
-  background: var(--teal-dark);
-  color: #e6f4f3;
-  font-size: 0.9375rem;
-  text-align: center;
-}
-
-.timetable__footer p {
-  margin: 0;
-}
-
 @media (max-width: 44rem) {
   .timetable__hero {
     grid-template-columns: 1fr;
   }
 
-  .timetable__art {
-    max-inline-size: 26rem;
+  .timetable-site__pool {
+    max-inline-size: 30rem;
   }
 }

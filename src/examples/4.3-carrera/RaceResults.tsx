@@ -1,6 +1,13 @@
 import { useId, useState } from 'react'
 import type { ExamplePageProps } from '../types'
 import './race-results.css'
+import {
+  RaceCrumbs,
+  RaceExtras,
+  RaceFooter,
+  RaceHeader,
+  RacePodium,
+} from './RaceSite'
 
 interface Runner {
   bib: number
@@ -49,6 +56,11 @@ const position = new Map(
 /** Clasificación de una carrera: encabezados que ordenan, estado y resultado. */
 export function RaceResults({ fixed }: ExamplePageProps) {
   const id = useId()
+  const anchors = {
+    main: `#${id}-main`,
+    route: `#${id}-recorrido`,
+    next: `#${id}-2027`,
+  }
   const [sort, setSort] = useState<{ key: Key; direction: Direction }>({
     key: 'time',
     direction: 'ascending',
@@ -77,41 +89,31 @@ export function RaceResults({ fixed }: ExamplePageProps) {
 
   return (
     <div className={`race${fixed ? '' : ' race--barrier'}`}>
-      <header className="race__header">
-        <p className="race__brand">
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            viewBox="0 0 32 32"
-            className="race__logo"
-          >
-            <circle cx="16" cy="16" r="16" />
-            <path d="M7 22c4-1 5-6 9-6s4 4 9-1M21 9l4 6" />
-          </svg>
-          Carrera popular de Villaverde
-        </p>
-        <nav aria-label="Principal" className="race__nav">
-          <a href={`#${id}-main`}>Clasificación</a>
-          <a href={`#${id}-main`}>Fotos</a>
-          <a href={`#${id}-main`}>Inscripciones 2027</a>
-        </nav>
-      </header>
+      <RaceHeader {...anchors} />
       <main id={`${id}-main`} className="race__main">
         <div className="race__hero">
-          <p className="race__kicker">XXIV edición · Resultados oficiales</p>
-          <h1>Clasificación de los 10 km</h1>
-          <p className="race__intro">Domingo 8 de noviembre de 2026.</p>
-          <p className="race__facts">
-            <span>
-              <strong>10 km</strong> urbanos
-            </span>
-            <span>
-              <strong>Salida</strong> a las 9:30
-            </span>
-            <span>
-              <strong>Meta</strong> en el parque de la Dehesa
-            </span>
-          </p>
+          <div className="race__hero-inner">
+            <div className="race__hero-text">
+              <RaceCrumbs main={anchors.main} />
+              <p className="race__kicker">
+                XXIV edición · Resultados oficiales
+              </p>
+              <h1>Clasificación de los 10 km</h1>
+              <p className="race__intro">Domingo 8 de noviembre de 2026.</p>
+              <p className="race__facts">
+                <span>
+                  <strong>10 km</strong> urbanos
+                </span>
+                <span>
+                  <strong>Salida</strong> a las 9:30
+                </span>
+                <span>
+                  <strong>Meta</strong> en el parque de la Dehesa
+                </span>
+              </p>
+            </div>
+            <RacePodium />
+          </div>
         </div>
         <div className="race__board">
           <p
@@ -207,10 +209,9 @@ export function RaceResults({ fixed }: ExamplePageProps) {
             viernes 13 de noviembre.
           </p>
         </div>
+        <RaceExtras {...anchors} />
       </main>
-      <footer className="race__footer">
-        <p>Club Atletismo Villaverde · Información de demostración</p>
-      </footer>
+      <RaceFooter {...anchors} />
     </div>
   )
 }

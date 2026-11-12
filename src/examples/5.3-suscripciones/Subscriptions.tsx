@@ -2,6 +2,7 @@ import { type KeyboardEvent, useEffect, useId, useRef, useState } from 'react'
 import { type GridPosition, nextGridPosition } from '../gridKeys'
 import type { ExamplePageProps } from '../types'
 import './subscriptions.css'
+import { SubsExtras, SubsFooter, SubsSummary, SubsUser } from './SubsSite'
 
 const magazines = [
   { name: 'Cocina fácil', price: '3,50 €', renews: '1 de diciembre' },
@@ -100,17 +101,21 @@ export function Subscriptions({ fixed }: ExamplePageProps) {
         </p>
         <nav aria-label="Principal" className="subs__nav">
           <a href={`#${id}-main`}>Revistas</a>
-          <a href={`#${id}-main`}>Mis suscripciones</a>
+          <a href={`#${id}-main`} aria-current="page">
+            Mis suscripciones
+          </a>
           <a href={`#${id}-main`}>Ayuda</a>
         </nav>
+        <SubsUser />
       </header>
       <main id={`${id}-main`} className="subs__main">
-        <p className="subs__account">Cuenta de Marta Llorente · Plan lector</p>
+        <p className="subs__account">Mi cuenta › Suscripciones</p>
         <h1>Mis suscripciones</h1>
         <p className="subs__intro">
           Dentro de la tabla, muévete con las flechas. Puedes darte de baja
           cuando quieras.
         </p>
+        <SubsSummary items={items} />
         <p
           className="subs__status"
           data-fix="announce"
@@ -189,13 +194,12 @@ export function Subscriptions({ fixed }: ExamplePageProps) {
             No tienes suscripciones activas.
           </p>
         )}
-        <p>
+        <p className="subs__all">
           <a href={`#${id}-main`}>Ver todas las revistas</a>
         </p>
+        <SubsExtras main={`#${id}-main`} />
       </main>
-      <footer className="subs__footer">
-        <p>Quiosco Papel · Información de demostración</p>
-      </footer>
+      <SubsFooter main={`#${id}-main`} />
     </div>
   )
 }

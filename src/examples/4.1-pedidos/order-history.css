@@ -34,12 +34,20 @@
   outline-offset: 3px;
 }
 
+.orders__promo {
+  margin: 0;
+  padding: 0.45rem clamp(1rem, 5vw, 4rem);
+  background: var(--raspberry-dark);
+  color: #fff;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
 .orders__header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
+  gap: 1rem 2.5rem;
   padding: 1rem clamp(1rem, 5vw, 4rem);
   border-block-end: 1px solid var(--line);
   background: var(--card);
@@ -59,6 +67,7 @@
 
 /* Marca: un lápiz frambuesa en diagonal. */
 .orders__logo {
+  flex: none;
   inline-size: 2.2rem;
   block-size: 0.7rem;
   background: linear-gradient(
@@ -71,16 +80,111 @@
   rotate: -35deg;
 }
 
-/* Pestañas de la cuenta. */
+.orders__service {
+  display: grid;
+  flex: 1 1 16rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.orders__service strong {
+  color: var(--ink);
+}
+
+.orders__service span {
+  font-size: 0.875rem;
+}
+
+.orders__user {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.orders__avatar {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 50%;
+  background: var(--blush);
+  color: var(--raspberry-dark);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.orders__avatar--large {
+  inline-size: 3.25rem;
+  block-size: 3.25rem;
+  font-size: 1.125rem;
+}
+
+/* Área de cliente: menú de la cuenta a la izquierda y contenido. */
+.orders__layout {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  inline-size: 100%;
+  max-inline-size: 76rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 4rem) 4rem;
+}
+
+@media (min-width: 56rem) {
+  .orders__layout {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    align-items: start;
+    gap: 3rem;
+  }
+}
+
+.orders__sidebar {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--card);
+}
+
+.orders__profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.orders__profile p {
+  display: grid;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.orders__profile span {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+/* Menú de la cuenta. */
 .orders__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.25rem;
+}
+
+@media (min-width: 56rem) {
+  .orders__nav {
+    flex-direction: column;
+  }
 }
 
 .orders .orders__nav a {
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.6rem;
   color: var(--ink);
   font-weight: 400;
   text-decoration: none;
@@ -89,6 +193,7 @@
 .orders .orders__nav a:hover {
   background: var(--blush);
   color: var(--raspberry-dark);
+  text-decoration: underline;
 }
 
 .orders .orders__nav [aria-current="page"] {
@@ -97,13 +202,26 @@
   font-weight: 700;
 }
 
+.orders__points {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background: #fff6e6;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.orders__points-value {
+  color: #7a4a06;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .orders__main {
-  flex: 1;
-  box-sizing: border-box;
-  inline-size: 100%;
-  max-inline-size: 72rem;
-  margin-inline: auto;
-  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 5vw, 4rem) 4rem;
+  min-inline-size: 0;
 }
 
 .orders h1 {
@@ -259,17 +377,145 @@
   color: var(--returned);
 }
 
+/* Resumen, dirección y devoluciones, debajo de la tabla. */
+.orders__extra {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1.25rem;
+  margin-block-start: 1.5rem;
+}
+
+.orders__panel {
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--card);
+}
+
+.orders__panel h2 {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.orders__panel p {
+  margin: 0 0 0.9rem;
+}
+
+.orders__panel--help {
+  border-color: #f1cfde;
+  background: var(--blush);
+}
+
+.orders__stats {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.orders__stats div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid var(--line);
+}
+
+.orders__stats div:last-child {
+  padding-block-end: 0;
+  border-block-end: 0;
+}
+
+.orders__stats dt {
+  color: var(--ink-soft);
+}
+
+.orders__stats dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.orders__address {
+  margin-block-end: 0.75rem;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.orders .orders__address-note {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
 .orders__footer {
-  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  padding: 2.5rem clamp(1rem, 5vw, 4rem) 1.5rem;
   border-block-start: 1px solid var(--line);
   background: var(--card);
   color: var(--ink-soft);
   font-size: 0.9375rem;
-  text-align: center;
 }
 
-.orders__footer p {
+.orders__footer-grid,
+.orders__legal {
+  max-inline-size: 76rem;
+  margin-inline: auto;
+}
+
+.orders__footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 2rem;
+}
+
+.orders__footer .orders__brand {
+  font-size: 1.375rem;
+}
+
+.orders__footer-text {
+  margin: 0.75rem 0 0;
+  font-style: normal;
+}
+
+.orders__footer-title {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.orders__footer ul {
+  display: grid;
+  gap: 0.4rem;
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.orders .orders__footer a {
+  color: var(--raspberry-dark);
+  font-weight: 400;
+}
+
+.orders__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-block-start: 2rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--line);
+}
+
+.orders__legal p {
+  margin: 0;
+}
+
+.orders__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
 }
 
 /*

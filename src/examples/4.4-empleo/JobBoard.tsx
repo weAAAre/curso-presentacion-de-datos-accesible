@@ -1,6 +1,14 @@
 import { useId, useRef, useState } from 'react'
 import type { ExamplePageProps } from '../types'
 import './job-board.css'
+import {
+  JobCrumbs,
+  JobExtras,
+  JobFooter,
+  JobHeader,
+  JobHeroArt,
+  JobHighlights,
+} from './JobSite'
 
 const jobs = [
   [
@@ -62,39 +70,21 @@ export function JobBoard({ fixed }: ExamplePageProps) {
 
   return (
     <div className={`jobs${fixed ? '' : ' jobs--barrier'}`}>
-      <header className="jobs__header">
-        <p className="jobs__brand">
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            viewBox="0 0 32 32"
-            className="jobs__logo"
-          >
-            <path className="jobs__logo-stem" d="M16 29V15" />
-            <path
-              className="jobs__logo-leaf"
-              d="M16 17C16 10 11 6 4 6c0 7 5 11 12 11Z"
-            />
-            <path
-              className="jobs__logo-leaf jobs__logo-leaf--new"
-              d="M16 14c0-6 4-10 12-10 0 6-5 10-12 10Z"
-            />
-          </svg>
-          Brote Empleo
-        </p>
-        <nav aria-label="Principal" className="jobs__nav">
-          <a href={`#${id}-main`}>Ofertas</a>
-          <a href={`#${id}-main`}>Empresas</a>
-          <a href={`#${id}-main`}>Mi currículum</a>
-        </nav>
-      </header>
+      <JobHeader main={`#${id}-main`} />
       <main id={`${id}-main`} className="jobs__main">
         <div className="jobs__hero">
-          <h1>Ofertas de empleo</h1>
-          <p className="jobs__intro">
-            Trabajo con condiciones claras: todas las ofertas publican el
-            salario y la modalidad.
-          </p>
+          <div className="jobs__hero-inner">
+            <div>
+              <JobCrumbs main={`#${id}-main`} />
+              <h1>Ofertas de empleo</h1>
+              <p className="jobs__intro">
+                Trabajo con condiciones claras: todas las ofertas publican el
+                salario y la modalidad.
+              </p>
+              <JobHighlights />
+            </div>
+            <JobHeroArt />
+          </div>
         </div>
         <search className="jobs__filters" data-fix="labels">
           <div className="jobs__field">
@@ -204,10 +194,9 @@ export function JobBoard({ fixed }: ExamplePageProps) {
             )}
           </div>
         </div>
+        <JobExtras main={`#${id}-main`} />
       </main>
-      <footer className="jobs__footer">
-        <p>Brote Empleo · Información de demostración</p>
-      </footer>
+      <JobFooter main={`#${id}-main`} />
     </div>
   )
 }

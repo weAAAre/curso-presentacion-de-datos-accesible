@@ -1,0 +1,531 @@
+/* Resto de la app del club. Usa la paleta declarada en .courts. */
+.courts-site__icon {
+  flex: none;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Zona de la persona usuaria en la barra. */
+.courts-site__account {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.courts-site__account p {
+  margin: 0;
+}
+
+.courts-site__wallet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.courts-site__wallet .courts-site__icon {
+  color: var(--ball);
+}
+
+.courts-site__wallet-label {
+  color: #c9d4e6;
+  font-weight: 400;
+}
+
+.courts-site__user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.courts-site__avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  border-radius: 50%;
+  background: var(--ball);
+  box-shadow:
+    0 0 0 2px var(--navy),
+    0 0 0 4px rgb(215 240 75 / 0.4);
+  color: var(--navy);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.courts-site__user-text {
+  display: grid;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.courts-site__user-text span {
+  color: #c9d4e6;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+/* Pasos de la reserva. */
+.courts-site__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.courts-site__step {
+  display: flex;
+  flex: 1 1 13rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: 0.85rem;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.3;
+}
+
+.courts-site__step strong {
+  display: block;
+  color: var(--ink);
+}
+
+.courts-site__step-mark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 50%;
+  background: var(--taken-bg);
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.courts-site__step--done .courts-site__step-mark {
+  background: var(--free-bg);
+  box-shadow: inset 0 0 0 1px var(--free-line);
+  color: var(--free-ink);
+}
+
+.courts-site__step--done .courts-site__icon {
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  stroke-width: 2.6;
+}
+
+.courts-site__step--now {
+  box-shadow:
+    inset 0 0 0 2px var(--court),
+    0 6px 16px rgb(31 95 184 / 0.12);
+}
+
+.courts-site__step--now .courts-site__step-mark {
+  background: var(--court);
+  color: #fff;
+}
+
+/* Lateral: la foto del club y el resumen. */
+.courts-site__aside {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.courts-site__club {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--navy);
+  box-shadow: 0 12px 32px rgb(14 35 64 / 0.18);
+}
+
+.courts-site__club-art {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.courts-site__club figcaption {
+  padding: 0.75rem 1rem;
+  color: #dbe4f2;
+  font-size: 0.875rem;
+}
+
+.courts-site__summary {
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(14 35 64 / 0.06),
+    0 12px 32px rgb(14 35 64 / 0.08);
+}
+
+.courts-site__summary h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.courts-site__summary dl {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.courts-site__summary dl div {
+  display: grid;
+  gap: 0.1rem;
+  padding-block-end: 0.6rem;
+  border-block-end: 1px solid var(--line);
+}
+
+.courts-site__summary dt {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.courts-site__summary dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.courts-site__summary dd strong {
+  color: var(--court);
+}
+
+/* Barra del bono: 3 de 10, decorativa (el dato está escrito arriba). */
+.courts-site__meter {
+  block-size: 0.5rem;
+  margin: 0.75rem 0 1rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--court-tint);
+}
+
+.courts-site__meter span {
+  display: block;
+  inline-size: 30%;
+  block-size: 100%;
+  border-radius: inherit;
+  background: var(--court);
+}
+
+.courts-site__notice {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+/* Secciones de abajo. */
+.courts-site__more {
+  display: grid;
+  gap: clamp(3rem, 6vw, 4.5rem);
+  margin-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+.courts-site__more h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.courts-site__rules ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.courts-site__rules li {
+  display: flex;
+  gap: 0.85rem;
+  padding: 1.1rem;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.courts-site__rules li span {
+  display: grid;
+  gap: 0.15rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.courts-site__rules li strong {
+  color: var(--ink);
+  font-size: 1.0625rem;
+}
+
+.courts-site__icon--tile {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background: var(--court-tint);
+  color: var(--court);
+}
+
+.courts-site__lessons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.courts-site__lesson {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(14 35 64 / 0.06),
+    0 12px 32px rgb(14 35 64 / 0.06);
+}
+
+.courts-site__lesson p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.courts-site__lesson h3 {
+  margin: 0.4rem 0 0.25rem;
+  font-size: 1.25rem;
+}
+
+.courts-site__lesson-when {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.courts-site__lesson .courts-site__lesson-when {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.courts-site__lesson .courts-site__lesson-price {
+  flex: 1;
+  margin-block-end: 0.75rem;
+  color: var(--ink);
+}
+
+/* Estado de la clase: siempre con texto; el color lo acompaña. */
+.courts-site__lesson .courts-site__state {
+  display: inline-flex;
+  align-items: center;
+  align-self: start;
+  gap: 0.4rem;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.courts-site__state::before {
+  content: "";
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.courts-site__lesson .courts-site__state--free {
+  background: var(--free-bg);
+  color: var(--free-ink);
+}
+
+.courts-site__lesson .courts-site__state--few {
+  background: #fff3d6;
+  color: #7a4b00;
+}
+
+.courts-site__lesson .courts-site__state--full {
+  background: var(--taken-bg);
+  color: var(--taken-ink);
+}
+
+.courts-site__cup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 2rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 92% 20%, rgb(215 240 75 / 0.2), transparent 12rem),
+    var(--navy);
+  color: #fff;
+}
+
+.courts-site__cup-text {
+  flex: 1 1 24rem;
+}
+
+.courts-site__cup h2 {
+  margin-block-end: 0.5rem;
+}
+
+.courts-site__cup p {
+  margin: 0;
+  color: #dbe4f2;
+}
+
+.courts-site__cup .courts-site__eyebrow {
+  margin-block-end: 0.35rem;
+  color: var(--ball);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.courts-site__cup-icon {
+  inline-size: 4rem;
+  block-size: 4rem;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  background: rgb(215 240 75 / 0.14);
+  color: var(--ball);
+}
+
+.courts .courts-site__cup-link {
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  background: var(--ball);
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.courts .courts-site__cup-link:hover {
+  background: #fff;
+  text-decoration: underline;
+}
+
+.courts .courts-site__cup :focus-visible {
+  outline-color: var(--ball);
+}
+
+/* Pie de la app. */
+.courts-site__footer {
+  padding: clamp(2.5rem, 6vw, 3.5rem) var(--gutter) 1.5rem;
+  border-block-start: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.courts-site__footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+  max-inline-size: 76rem;
+  margin-inline: auto;
+}
+
+.courts-site__footer p {
+  margin: 0 0 0.6rem;
+}
+
+.courts-site__footer .courts-site__footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-block-end: 1rem;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.courts-site__footer-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.courts-site__footer-line .courts-site__icon {
+  color: var(--court);
+}
+
+.courts-site__footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+}
+
+.courts-site__footer h2 {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: 0.9375rem;
+}
+
+.courts-site__footer ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.courts .courts-site__footer-nav a,
+.courts .courts-site__footer-legal nav a {
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.courts .courts-site__footer-nav a:hover,
+.courts .courts-site__footer-legal nav a:hover {
+  color: var(--court);
+}
+
+.courts-site__footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  max-inline-size: 76rem;
+  margin: 2.5rem auto 0;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--line);
+}
+
+.courts-site__footer-legal p {
+  flex: 1 1 24rem;
+}
+
+.courts-site__footer-legal nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+@media (max-width: 48rem) {
+  .courts-site__footer-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

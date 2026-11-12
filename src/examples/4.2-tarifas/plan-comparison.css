@@ -28,12 +28,55 @@
   outline-offset: 3px;
 }
 
-.plans__header {
+.plans__topbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.25rem 1.5rem;
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  background: #f6f5fb;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.plans__topbar p {
+  margin: 0;
+  padding-block: 0.45rem;
+}
+
+.plans__topbar strong {
+  color: var(--ink);
+}
+
+.plans__segments {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.plans .plans__segments a {
+  padding: 0.45rem 0.9rem;
+  color: var(--ink-soft);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.plans .plans__segments a:hover {
+  color: var(--brand-dark);
+  text-decoration: underline;
+}
+
+.plans .plans__segments [aria-current="page"] {
+  background: #fff;
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+
+.plans__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2.5rem;
   padding: 1.1rem clamp(1rem, 5vw, 4rem);
   border-block-end: 1px solid var(--line);
 }
@@ -51,6 +94,7 @@
 
 /* Marca: tres ondas concéntricas. */
 .plans__logo {
+  flex: none;
   inline-size: 1.75rem;
   block-size: 1.75rem;
   border-radius: 50%;
@@ -66,18 +110,54 @@
 
 .plans__nav {
   display: flex;
+  flex: 1 1 26rem;
   flex-wrap: wrap;
-  gap: 1.75rem;
+  gap: 0.5rem 1.75rem;
 }
 
 .plans .plans__nav a {
+  padding-block: 0.25rem;
+  border-block-end: 3px solid transparent;
   color: var(--ink);
+  font-weight: 400;
   text-decoration: none;
 }
 
 .plans .plans__nav a:hover {
   color: var(--brand);
   text-decoration: underline;
+}
+
+.plans .plans__nav [aria-current="page"] {
+  border-block-end-color: var(--brand);
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+
+.plans .plans__account {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  padding: 0.4rem 1.1rem 0.4rem 0.85rem;
+  border: 2px solid var(--brand);
+  border-radius: 999px;
+  color: var(--brand-dark);
+  text-decoration: none;
+}
+
+.plans .plans__account:hover {
+  background: var(--brand-tint);
+  text-decoration: underline;
+}
+
+.plans__account svg {
+  inline-size: 1.3rem;
+  block-size: 1.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
 }
 
 .plans__hero {
@@ -170,7 +250,9 @@
   border-block-end: 0;
 }
 
+/* Ancla el texto oculto dentro de la celda: no ensancha la página. */
 .plans__mark {
+  position: relative;
   display: inline-flex;
 }
 
@@ -191,10 +273,34 @@
   stroke: var(--no);
 }
 
+.plans__note {
+  max-inline-size: min(62rem, 100% - 2rem);
+  margin: 1rem auto 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+/* Banda de cobertura. */
+.plans__cta-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  max-inline-size: min(62rem, 100% - 2rem);
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 1.75rem;
+  border-radius: 1.25rem;
+  background: var(--brand-tint);
+}
+
+.plans__cta-band p {
+  flex: 1 1 18rem;
+  margin: 0;
+}
+
 .plans .plans__cta {
-  display: block;
-  inline-size: fit-content;
-  margin: 2.5rem auto 4rem;
+  display: inline-block;
   padding: 0.9rem 2rem;
   border-radius: 999px;
   background: var(--brand);
@@ -204,16 +310,173 @@
 
 .plans .plans__cta:hover {
   background: var(--brand-dark);
+  text-decoration: underline;
+}
+
+.plans__section {
+  max-inline-size: min(62rem, 100% - 2rem);
+  margin: clamp(3rem, 7vw, 4.5rem) auto 0;
+}
+
+.plans__section--faq {
+  margin-block-end: 4rem;
+}
+
+.plans h2 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.125rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.plans__perks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plans__perks li {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+}
+
+.plans__perks svg {
+  inline-size: 3rem;
+  block-size: 3rem;
+  margin-block-end: 0.5rem;
+  padding: 0.7rem;
+  border-radius: 0.9rem;
+  background: var(--brand-tint);
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.plans__perk-title {
+  font-weight: 700;
+}
+
+.plans__perk-text {
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.plans__faq {
+  border-block-start: 1px solid var(--line);
+}
+
+.plans__faq details {
+  border-block-end: 1px solid var(--line);
+}
+
+.plans__faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.plans__faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.plans__faq summary::after {
+  flex: none;
+  inline-size: 0.65rem;
+  block-size: 0.65rem;
+  border-block-end: 2.5px solid var(--brand);
+  border-inline-end: 2.5px solid var(--brand);
+  content: "";
+  rotate: 45deg;
+  translate: 0 -0.2rem;
+}
+
+.plans__faq details[open] summary::after {
+  rotate: 225deg;
+  translate: 0 0.15rem;
+}
+
+.plans__faq summary:hover {
+  color: var(--brand);
+}
+
+.plans__faq-answer {
+  margin: 0;
+  padding: 0 0.25rem 1.25rem;
+  color: var(--ink-soft);
 }
 
 .plans__footer {
-  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  padding: 2.5rem clamp(1rem, 5vw, 4rem) 1.5rem;
   background: #f6f5fb;
   color: var(--ink-soft);
   font-size: 0.9375rem;
-  text-align: center;
 }
 
-.plans__footer p {
+.plans__footer-grid,
+.plans__legal {
+  max-inline-size: 76rem;
+  margin-inline: auto;
+}
+
+.plans__footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 2rem;
+}
+
+.plans__footer .plans__brand {
+  font-size: 1.375rem;
+}
+
+.plans__footer-text {
+  margin: 0.75rem 0 0;
+}
+
+.plans__footer-title {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.plans__footer ul {
+  display: grid;
+  gap: 0.4rem;
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plans .plans__footer a {
+  font-weight: 400;
+}
+
+.plans__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-block-start: 2rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--line);
+}
+
+.plans__legal p {
+  margin: 0;
+}
+
+.plans__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
 }

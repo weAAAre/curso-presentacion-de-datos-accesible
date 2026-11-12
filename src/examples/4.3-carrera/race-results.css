@@ -31,75 +31,16 @@
   outline-offset: 3px;
 }
 
-.race__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-  padding: 1rem clamp(1rem, 5vw, 4rem);
-  border-block-end: 1px solid var(--line);
-  background: #fff;
-}
-
-.race__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin: 0;
-  color: var(--ink);
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-
-/* Marca: el trazado del recorrido sobre el rojo del dorsal. */
-.race__logo {
-  flex: none;
-  inline-size: 2.25rem;
-  block-size: 2.25rem;
-}
-
-.race__logo circle {
-  fill: var(--red);
-}
-
-.race__logo path {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.race__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-}
-
-.race .race__nav a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.race .race__nav a:hover {
-  color: var(--red-dark);
-  text-decoration: underline;
-}
-
 .race__main {
-  padding-block-end: 4rem;
+  padding-block-end: 0;
 }
 
-/* Cabecera de resultados: asfalto con la línea de meta a cuadros. */
+/* Cabecera de resultados: asfalto con las líneas de la calzada. */
 .race__hero {
-  position: relative;
-  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 5vw, 4rem) 7rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 5vw, 4rem) 7rem;
   background-color: var(--asphalt);
   background-image:
-    repeating-conic-gradient(#fff 0 25%, var(--asphalt) 0 50%),
+    radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1.5px),
     linear-gradient(
       115deg,
       transparent 64%,
@@ -108,19 +49,25 @@
       rgb(255 201 60 / 0.35) 75% 76.5%,
       transparent 76.5%
     );
-  background-position:
-    0 100%,
-    0 0;
-  background-repeat: repeat-x, no-repeat;
   background-size:
-    1.5rem 1.5rem,
+    6px 6px,
     auto;
   color: #fff;
 }
 
-.race__hero > * {
+.race__hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+  align-items: end;
+  gap: 2rem clamp(2rem, 5vw, 4rem);
   max-inline-size: 76rem;
   margin-inline: auto;
+}
+
+@media (max-width: 56rem) {
+  .race__hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .race__kicker {
@@ -174,9 +121,22 @@
   padding: clamp(1.25rem, 3vw, 2rem);
   border-radius: 1.25rem;
   background: #fff;
+  overflow: hidden;
   box-shadow:
     0 1px 2px rgb(34 26 27 / 0.06),
     0 20px 44px rgb(34 26 27 / 0.14);
+}
+
+/* Línea de meta a cuadros en el borde superior del tablero. */
+.race__board::before {
+  content: "";
+  display: block;
+  block-size: 0.75rem;
+  margin: calc(-1 * clamp(1.25rem, 3vw, 2rem))
+    calc(-1 * clamp(1.25rem, 3vw, 2rem)) clamp(1.25rem, 3vw, 2rem);
+  background:
+    repeating-conic-gradient(var(--asphalt) 0 25%, #fff 0 50%) 0 0 / 0.75rem
+    0.75rem;
 }
 
 .race__summary {
@@ -193,6 +153,8 @@
 }
 
 .race__summary:empty {
+  min-block-size: 0;
+  margin: 0;
   padding: 0;
   background: transparent;
 }
@@ -336,16 +298,4 @@
   margin: 1rem 0 0;
   color: var(--ink-soft);
   font-size: 0.9375rem;
-}
-
-.race__footer {
-  padding: 1.5rem clamp(1rem, 5vw, 4rem);
-  background: var(--asphalt);
-  color: #e9dedc;
-  font-size: 0.9375rem;
-  text-align: center;
-}
-
-.race__footer p {
-  margin: 0;
 }

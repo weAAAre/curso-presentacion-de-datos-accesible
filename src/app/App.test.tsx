@@ -27,7 +27,7 @@ describe('Rutas', () => {
 describe('Portada', () => {
   it('enlaza las dos versiones de cada web, en orden y sin barreras', async () => {
     const { container } = render(<App pathname="/" />)
-    const links = within(screen.getByRole('list'))
+    const links = within(screen.getByRole('main'))
       .getAllByRole('link')
       .map((link) => link.getAttribute('href'))
     expect(links).toEqual(

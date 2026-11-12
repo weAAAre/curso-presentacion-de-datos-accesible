@@ -28,74 +28,12 @@
   outline-offset: 3px;
 }
 
-.jobs__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-  padding: 1rem clamp(1rem, 5vw, 4rem);
-  border-block-end: 1px solid var(--line);
-  background: #fff;
-}
-
-.jobs__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin: 0;
-  color: var(--green-dark);
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-/* Marca: un brote con dos hojas. */
-.jobs__logo {
-  flex: none;
-  inline-size: 2rem;
-  block-size: 2rem;
-}
-
-.jobs__logo-stem {
-  fill: none;
-  stroke: var(--green-dark);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-}
-
-.jobs__logo-leaf {
-  fill: var(--green);
-}
-
-.jobs__logo-leaf--new {
-  fill: #7cc242;
-}
-
-.jobs__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-}
-
-.jobs .jobs__nav a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.jobs .jobs__nav a:hover {
-  color: var(--green);
-  text-decoration: underline;
-}
-
 .jobs__main {
-  padding-block-end: 4rem;
+  padding-block-end: 0;
 }
 
 .jobs__hero {
-  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 5vw, 4rem) 6.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 5vw, 4rem) 6.5rem;
   background:
     radial-gradient(
       circle at 88% 20%,
@@ -111,9 +49,19 @@
   color: #fff;
 }
 
-.jobs__hero > * {
+.jobs__hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+  align-items: center;
+  gap: 2rem;
   max-inline-size: 72rem;
   margin-inline: auto;
+}
+
+@media (max-width: 52rem) {
+  .jobs__hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .jobs h1 {
@@ -340,17 +288,4 @@
 
 .jobs__clear:hover {
   background: var(--green-dark);
-}
-
-.jobs__footer {
-  padding: 1.5rem clamp(1rem, 5vw, 4rem);
-  border-block-start: 1px solid var(--line);
-  background: #fff;
-  color: var(--ink-soft);
-  font-size: 0.9375rem;
-  text-align: center;
-}
-
-.jobs__footer p {
-  margin: 0;
 }

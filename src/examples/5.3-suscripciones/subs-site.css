@@ -1,0 +1,469 @@
+/* Resto del quiosco. Usa la paleta declarada en .subs. */
+.subs-site__icon {
+  flex: none;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.subs-site__user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.subs-site__avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--yellow);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.subs-site__user-text {
+  display: grid;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.subs-site__user-text span {
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+/* Resumen de la cuenta. */
+.subs-site__summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.subs-site__summary li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.subs-site__summary li:first-child {
+  background: var(--yellow-soft);
+  box-shadow: inset 0 0 0 1px #ecd98a;
+}
+
+.subs-site__summary-label {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.subs-site__summary-value {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Secciones después de la tabla. */
+.subs-site__more {
+  display: grid;
+  gap: clamp(3rem, 6vw, 4.5rem);
+  margin-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+.subs-site__more h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.subs-site__account-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 1.25rem;
+}
+
+.subs-site__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(28 26 23 / 0.06),
+    0 10px 28px rgb(28 26 23 / 0.06);
+}
+
+.subs-site__more .subs-site__panel h2 {
+  margin-block-end: 0.25rem;
+  font-size: 1.375rem;
+}
+
+.subs-site__panel p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.subs-site__panel > a {
+  margin-block-start: auto;
+}
+
+/* Tarjeta de pago dibujada con CSS. */
+.subs-site__card {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background:
+    radial-gradient(
+      circle at 110% -10%,
+      rgb(246 197 24 / 0.45),
+      transparent 9rem
+    ),
+    linear-gradient(135deg, #2c2925, var(--ink));
+  color: #fff;
+}
+
+.subs-site__card-chip {
+  inline-size: 2.4rem;
+  block-size: 1.75rem;
+  border-radius: 0.35rem;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 45%,
+      rgb(0 0 0 / 0.18) 45% 55%,
+      transparent 55%
+    ),
+    linear-gradient(transparent 45%, rgb(0 0 0 / 0.18) 45% 55%, transparent 55%),
+    linear-gradient(135deg, #f3d77a, #c99a2e);
+}
+
+.subs-site__panel .subs-site__card-number {
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  letter-spacing: 0.08em;
+}
+
+.subs-site__panel .subs-site__card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  color: #e7e1d3;
+  font-size: 0.875rem;
+}
+
+.subs-site__panel .subs-site__panel-note {
+  font-size: 0.9375rem;
+}
+
+.subs-site__invoices {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subs-site__invoices li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-block: 0.7rem;
+  border-block-end: 1px solid var(--line);
+}
+
+.subs-site__invoices .subs-site__icon {
+  color: var(--red);
+}
+
+.subs-site__invoice-amount {
+  margin-inline-start: auto;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.subs-site__panel--plan {
+  background: var(--yellow);
+}
+
+.subs-site__panel--plan p {
+  color: var(--ink);
+}
+
+.subs-site__plan-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subs-site__plan-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+/* Recomendaciones. */
+.subs-site__section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
+  margin-block-end: 1.25rem;
+}
+
+.subs-site__more .subs-site__section-head h2 {
+  margin: 0;
+}
+
+.subs-site__section-head p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.subs-site__picks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subs-site__pick {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.subs-site__cover {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  margin-block-end: 0.75rem;
+  border-radius: 0.35rem;
+  box-shadow:
+    0 2px 4px rgb(28 26 23 / 0.15),
+    0 14px 28px rgb(28 26 23 / 0.16);
+  transition: transform 0.15s;
+}
+
+.subs-site__pick:hover .subs-site__cover {
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subs-site__cover {
+    transition: none;
+  }
+
+  .subs-site__pick:hover .subs-site__cover {
+    transform: none;
+  }
+}
+
+.subs-site__pick h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+/* Toda la portada responde al enlace del título. */
+.subs-site__pick h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.subs .subs-site__pick h3 a:focus-visible {
+  outline: none;
+}
+
+.subs .subs-site__pick h3 a:focus-visible::after {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 0.35rem;
+}
+
+.subs-site__pick p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.subs-site__pick .subs-site__pick-price {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.subs-site__cover-title {
+  fill: var(--ink);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subs-site__cover-title--light {
+  fill: #fff;
+}
+
+.subs-site__cover-title--serif {
+  fill: #5c4415;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.subs-site__cover-sub {
+  fill: #2d4a1f;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.subs-site__cover-sub--dark {
+  fill: #5c4415;
+}
+
+.subs-site__cover-sub--light {
+  fill: #f6efe2;
+}
+
+/* Pie de página. */
+.subs-site__footer {
+  padding: clamp(2.5rem, 6vw, 4rem) var(--gutter) 1.5rem;
+  background: var(--ink);
+  color: #ece6d8;
+  font-size: 0.9375rem;
+}
+
+.subs-site__footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+  max-inline-size: 68rem;
+  margin-inline: auto;
+}
+
+.subs-site__footer p {
+  max-inline-size: 24rem;
+  margin: 0 0 0.75rem;
+}
+
+.subs-site__footer .subs-site__footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-block-end: 1rem;
+  color: #fff;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.subs-site__footer-brand .subs__logo {
+  background:
+    linear-gradient(var(--ink), var(--ink)) 0.3rem 0.35rem / 1.15rem 0.3rem
+    no-repeat,
+    repeating-linear-gradient(
+      180deg,
+      rgb(28 26 23 / 0.7) 0 0.12rem,
+      transparent 0.12rem 0.3rem
+    )
+    0.3rem 0.9rem / 1.15rem 0.9rem no-repeat,
+    var(--yellow);
+}
+
+.subs-site__footer .subs-site__footer-nav h2 {
+  margin: 0 0 0.75rem;
+  color: var(--yellow);
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.subs-site__footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+}
+
+.subs-site__footer ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subs .subs-site__footer-nav a,
+.subs .subs-site__footer-legal nav a {
+  color: #fff;
+  font-weight: 400;
+  text-decoration-color: rgb(246 197 24 / 0.7);
+}
+
+.subs .subs-site__footer-nav a:hover,
+.subs .subs-site__footer-legal nav a:hover {
+  color: var(--yellow);
+}
+
+.subs .subs-site__footer :focus-visible {
+  outline-color: var(--yellow);
+}
+
+.subs-site__footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  max-inline-size: 68rem;
+  margin: 2.5rem auto 0;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid rgb(255 255 255 / 0.18);
+  color: #d6cfbf;
+}
+
+.subs-site__footer-legal p {
+  flex: 1 1 24rem;
+}
+
+.subs-site__footer-legal nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+@media (max-width: 48rem) {
+  .subs-site__footer-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
