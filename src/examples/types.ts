@@ -24,7 +24,7 @@ export interface ExamplePageProps {
 export interface ExampleDefinition {
   /** Segmento de la URL: `/<slug>/`. */
   slug: string
-  /** Qué página es, para la portada y la ficha. */
+  /** Qué página es, para la portada. */
   name: string
   lesson: string
   lessonTitle: string

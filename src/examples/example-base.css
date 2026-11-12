@@ -1,10 +1,9 @@
 @import "../brand/tokens.css";
 
 /*
- * Base común de las páginas de ejemplo: papel blanco, tinta negra, bordes de
- * 2 px y las tipografías de weAAAre. Ninguna página añade colores de marca
- * propios; solo hay color cuando la lección trata de él. Las barreras
- * deliberadas viven en el CSS de cada página, bajo su clase `--barrier`.
+ * Base común de las webs de ejemplo: solo el reinicio mínimo. Cada web
+ * declara su propia marca (paleta, tipografía y composición) en su CSS, y
+ * sus barreras deliberadas viven ahí, bajo su clase `--barrier`.
  */
 html {
   color: var(--color-ink);

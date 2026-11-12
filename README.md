@@ -4,7 +4,9 @@ Ejemplos del curso **Presentación de datos accesible** de [weAAAre](https://wea
 
 Cómo presentar datos para que cualquier persona pueda entenderlos y usarlos: iconos, tooltips, listas, cards, tablas y grids.
 
-Cada ejemplo es una página pequeña con una barrera de accesibilidad y la misma página con el arreglo. Puedes abrirlas, probarlas con teclado o con lector de pantalla y comparar el código de las dos versiones.
+**Ábrelos en <https://weaaare.github.io/curso-presentacion-de-datos-accesible/>.**
+
+Cada ejemplo es la web de una empresa ficticia que con ratón funciona bien y esconde barreras de accesibilidad a propósito, más la misma web ya arreglada. Puedes abrirlas, probarlas con teclado o con lector de pantalla y comparar el código de las dos versiones.
 
 ## Ejemplos
 
@@ -50,11 +52,19 @@ Cada carpeta de `src/examples/` contiene:
 
 `src/examples/registry.ts` registra los ejemplos en el orden del curso.
 
+## Cómo añadir un ejemplo
+
+1. Crea la carpeta `src/examples/<lección>-<slug>/` con los cuatro archivos de arriba. Lo más rápido es copiar un ejemplo parecido.
+2. Añádelo a `src/examples/registry.ts`, en el orden del curso, y a la tabla de este README.
+3. Ejecuta `pnpm check`.
+
+Al subir a `main`, GitHub Actions pasa las comprobaciones y publica la web en GitHub Pages.
+
 ## Estilo de los ejemplos
 
-Cada ejemplo es la web de una empresa ficticia, con su marca, sus colores y contenido verosímil, como las webs de práctica de [retos.weaaare.com](https://retos.weaaare.com). Con ratón todo funciona; fuera de las barreras que enseña la lección, todo es accesible.
+Cada ejemplo es la web de una empresa ficticia, con su marca, sus colores y contenido verosímil, como las webs de práctica de [retos.weaaare.com](https://retos.weaaare.com). Con ratón todo funciona; fuera de las barreras que enseña la lección, todo es accesible. No llevan dependencias ni recursos externos y nada se mueve solo.
 
-La portada (`src/app/`) sigue la de retos.weaaare.com y usa los tokens de weAAAre de `src/brand/tokens.css`.
+La portada (`src/app/`) sigue la de retos.weaaare.com y usa los tokens de weAAAre de `src/brand/tokens.css`. La web no se indexa en buscadores, porque contiene barreras a propósito.
 
 ## Comprobaciones
 
