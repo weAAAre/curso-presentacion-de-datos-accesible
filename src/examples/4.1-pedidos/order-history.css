@@ -1,28 +1,37 @@
-/* Papelería con el lenguaje visual de weAAAre. */
+/* Papelería Trazo: área de cliente de una papelería. Frambuesa sobre papel. */
 .orders {
-  --page-accent: var(--color-surface);
+  --raspberry: #a3195b;
+  --raspberry-dark: #7a1243;
+  --blush: #fcecf3;
+  --paper: #fbf9f6;
+  --card: #fff;
+  --ink: #241a20;
+  --ink-soft: #5e5258;
+  --line: #ece3e7;
+  --delivered: #17663d;
+  --delivered-tint: #e2f3e8;
+  --returned: #8a4b06;
+  --returned-tint: #fdf0dc;
 
   min-block-size: 100vh;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.55;
 }
 
 .orders a {
-  color: var(--color-ink);
-  text-decoration-thickness: 2px;
+  color: var(--raspberry);
+  font-weight: 700;
   text-underline-offset: 0.2em;
 }
 
-.orders a:hover {
-  background: var(--color-accent);
-}
-
 .orders :focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--raspberry);
+  outline-offset: 3px;
 }
 
 .orders__header {
@@ -30,108 +39,237 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: var(--border);
-  background: var(--page-accent);
-}
-
-.orders__header :focus-visible {
-  outline-color: var(--color-ink);
+  gap: 1rem 2rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  border-block-end: 1px solid var(--line);
+  background: var(--card);
 }
 
 .orders__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
   margin: 0;
-  font-family: var(--font-body);
+  color: var(--raspberry-dark);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
+/* Marca: un lápiz frambuesa en diagonal. */
+.orders__logo {
+  inline-size: 2.2rem;
+  block-size: 0.7rem;
+  background: linear-gradient(
+    to right,
+    var(--raspberry) 0 68%,
+    #f0c9a0 68% 88%,
+    var(--ink) 88%
+  );
+  clip-path: polygon(0 0, 68% 0, 100% 50%, 68% 100%, 0 100%);
+  rotate: -35deg;
+}
+
+/* Pestañas de la cuenta. */
 .orders__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.35rem;
 }
 
-.orders__nav [aria-current="page"] {
+.orders .orders__nav a {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.orders .orders__nav a:hover {
+  background: var(--blush);
+  color: var(--raspberry-dark);
+}
+
+.orders .orders__nav [aria-current="page"] {
+  background: var(--raspberry);
+  color: #fff;
   font-weight: 700;
 }
 
 .orders__main {
-  max-inline-size: 60rem;
+  flex: 1;
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 72rem;
   margin-inline: auto;
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 5vw, 4rem) 4rem;
 }
 
 .orders h1 {
   margin: 0 0 0.5rem;
   font-family: var(--font-display);
   font-variation-settings: var(--font-display-settings);
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  font-size: clamp(2.25rem, 1.4rem + 2.6vw, 3.25rem);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.08;
 }
 
 .orders__intro {
-  margin-block-start: 0;
-  color: var(--color-ink-medium);
+  max-inline-size: 38rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.125rem;
 }
 
+/* Título de la tabla: el mismo aspecto como párrafo (barrera) o como caption. */
 .orders__caption {
-  margin-block: 1.5rem 0.75rem;
-  font-family: var(--font-body);
-  font-size: 1.5rem;
+  margin: 2.25rem 0 0;
+  color: var(--ink);
+  font-size: 1.25rem;
   font-weight: 700;
   text-align: start;
 }
 
+/*
+ * El contenedor deja aire alrededor de la tabla para que su sombra no se
+ * corte al desplazarla.
+ */
 .orders__scroll {
-  max-inline-size: 100%;
+  max-inline-size: calc(100% + 1.5rem);
+  margin: 2rem -0.75rem 0;
+  padding: 0.25rem 0.75rem 1.5rem;
   overflow-x: auto;
-  border: var(--border);
-  border-radius: var(--radius-lg);
+}
+
+.orders__caption + .orders__scroll {
+  margin-block-start: 0.5rem;
+}
+
+.orders__scroll:focus-visible {
+  outline-offset: 0;
+  border-radius: 1rem;
 }
 
 .orders__table {
   inline-size: 100%;
-  min-inline-size: 40rem;
-  border-collapse: collapse;
+  min-inline-size: 44rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card);
+  box-shadow: 0 8px 24px rgb(122 18 67 / 0.07);
 }
 
 .orders__table caption {
-  padding-inline: 1rem;
+  margin: 0;
+  padding: 0 0 0.75rem;
+  caption-side: top;
 }
 
 .orders__table th,
 .orders__table td {
-  padding: 0.75rem 1rem;
-  border-block-end: 1px solid var(--color-rule-soft);
+  padding: 1rem 1.25rem;
+  border-block-end: 1px solid var(--line);
   text-align: start;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .orders__table thead th,
 .orders__head td {
-  border-block-end: var(--border);
-  background: var(--page-accent);
+  background: var(--blush);
+  color: var(--raspberry-dark);
+  font-size: 0.9375rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Esquinas redondeadas de la fila de encabezado. */
+.orders__table thead tr > :first-child,
+.orders__table .orders__head > :first-child {
+  border-start-start-radius: calc(1rem - 1px);
+}
+
+.orders__table thead tr > :last-child,
+.orders__table .orders__head > :last-child {
+  border-start-end-radius: calc(1rem - 1px);
 }
 
 .orders__table tbody tr:last-child td {
   border-block-end: 0;
 }
 
-.orders__amount {
-  font-variant-numeric: tabular-nums;
+.orders__table tbody tr:not(.orders__head):hover td {
+  background: #fdf7fa;
+}
+
+.orders__table tbody tr:last-child > :first-child {
+  border-end-start-radius: calc(1rem - 1px);
+}
+
+.orders__table tbody tr:last-child > :last-child {
+  border-end-end-radius: calc(1rem - 1px);
+}
+
+/* Importe alineado a la derecha, en la cabecera y en las celdas. */
+.orders__table tr > :nth-child(4) {
+  text-align: end;
+}
+
+.orders__code {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 700;
   white-space: nowrap;
 }
 
+.orders__amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.orders__state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.15rem 0.8rem 0.15rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.orders__state::before {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+.orders__state--delivered {
+  background: var(--delivered-tint);
+  color: var(--delivered);
+}
+
+.orders__state--returned {
+  background: var(--returned-tint);
+  color: var(--returned);
+}
+
 .orders__footer {
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: var(--border);
-  color: var(--color-ink-soft);
-  font-size: 0.875rem;
+  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  border-block-start: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
   text-align: center;
+}
+
+.orders__footer p {
+  margin: 0;
 }
 
 /*

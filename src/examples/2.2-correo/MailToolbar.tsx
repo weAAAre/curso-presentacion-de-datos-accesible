@@ -107,7 +107,10 @@ export function MailToolbar({ fixed }: ExamplePageProps) {
   return (
     <div className={`mail${fixed ? '' : ' mail--barrier'}`}>
       <header className="mail__header">
-        <p className="mail__brand">Buzón Brisa</p>
+        <p className="mail__brand">
+          <span aria-hidden="true" className="mail__logo" />
+          Buzón Brisa
+        </p>
         <nav aria-label="Carpetas" className="mail__nav">
           <a href={`#${id}-main`} aria-current="page">
             Bandeja de entrada
@@ -118,7 +121,12 @@ export function MailToolbar({ fixed }: ExamplePageProps) {
       </header>
       <main id={`${id}-main`} className="mail__main">
         <h1>Reserva confirmada: casa en Ribadesella</h1>
-        <p className="mail__from">De: Alojamientos Cantábrico · hoy, 9:42</p>
+        <p className="mail__from">
+          <span aria-hidden="true" className="mail__avatar">
+            AC
+          </span>
+          De: Alojamientos Cantábrico · hoy, 9:42
+        </p>
         <div className="mail__actions">
           <IconAction
             fixed={fixed}

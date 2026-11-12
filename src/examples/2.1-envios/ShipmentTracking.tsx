@@ -76,7 +76,10 @@ export function ShipmentTracking({ fixed }: ExamplePageProps) {
   return (
     <div className={`shipments${fixed ? '' : ' shipments--barrier'}`}>
       <header className="shipments__header">
-        <p className="shipments__brand">Mensajería Rayo</p>
+        <p className="shipments__brand">
+          <span aria-hidden="true" className="shipments__logo" />
+          Mensajería Rayo
+        </p>
         <nav aria-label="Principal" className="shipments__nav">
           <a href={`#${id}-main`}>Enviar un paquete</a>
           <a href={`#${id}-main`}>Mis envíos</a>
@@ -84,11 +87,13 @@ export function ShipmentTracking({ fixed }: ExamplePageProps) {
         </nav>
       </header>
       <main id={`${id}-main`} className="shipments__main">
-        <h1>Mis envíos</h1>
-        <p className="shipments__intro">
-          Consulta el estado de tus paquetes y descarga la etiqueta para pegarla
-          en la caja.
-        </p>
+        <div className="shipments__hero">
+          <h1>Mis envíos</h1>
+          <p className="shipments__intro">
+            Consulta el estado de tus paquetes y descarga la etiqueta para
+            pegarla en la caja.
+          </p>
+        </div>
         <ul className="shipments__list">
           {shipments.map((shipment) => (
             <li key={shipment.code} className="shipments__item">

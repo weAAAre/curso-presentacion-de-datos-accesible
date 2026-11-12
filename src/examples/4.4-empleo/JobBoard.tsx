@@ -63,7 +63,25 @@ export function JobBoard({ fixed }: ExamplePageProps) {
   return (
     <div className={`jobs${fixed ? '' : ' jobs--barrier'}`}>
       <header className="jobs__header">
-        <p className="jobs__brand">Brote Empleo</p>
+        <p className="jobs__brand">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 32 32"
+            className="jobs__logo"
+          >
+            <path className="jobs__logo-stem" d="M16 29V15" />
+            <path
+              className="jobs__logo-leaf"
+              d="M16 17C16 10 11 6 4 6c0 7 5 11 12 11Z"
+            />
+            <path
+              className="jobs__logo-leaf jobs__logo-leaf--new"
+              d="M16 14c0-6 4-10 12-10 0 6-5 10-12 10Z"
+            />
+          </svg>
+          Brote Empleo
+        </p>
         <nav aria-label="Principal" className="jobs__nav">
           <a href={`#${id}-main`}>Ofertas</a>
           <a href={`#${id}-main`}>Empresas</a>
@@ -71,7 +89,13 @@ export function JobBoard({ fixed }: ExamplePageProps) {
         </nav>
       </header>
       <main id={`${id}-main`} className="jobs__main">
-        <h1>Ofertas de empleo</h1>
+        <div className="jobs__hero">
+          <h1>Ofertas de empleo</h1>
+          <p className="jobs__intro">
+            Trabajo con condiciones claras: todas las ofertas publican el
+            salario y la modalidad.
+          </p>
+        </div>
         <search className="jobs__filters" data-fix="labels">
           <div className="jobs__field">
             {fixed && <label htmlFor={`${id}-q`}>Puesto o empresa</label>}
@@ -107,63 +131,78 @@ export function JobBoard({ fixed }: ExamplePageProps) {
           </div>
         </search>
 
-        <h2
-          id={`${id}-results`}
-          ref={resultsRef}
-          tabIndex={-1}
-          className="jobs__results-title"
-          data-fix="focus"
-        >
-          Resultados
-        </h2>
-        <p
-          className="jobs__count"
-          role={fixed ? 'status' : undefined}
-          data-fix="status"
-        >
-          {fixed &&
-            (results.length > 0
-              ? `Mostrando ${results.length} de ${jobs.length} ofertas.`
-              : `No hay ofertas para ${filters}.`)}
-        </p>
+        <div className="jobs__body">
+          <h2
+            id={`${id}-results`}
+            ref={resultsRef}
+            tabIndex={-1}
+            className="jobs__results-title"
+            data-fix="focus"
+          >
+            Resultados
+          </h2>
+          <p
+            className="jobs__count"
+            role={fixed ? 'status' : undefined}
+            data-fix="status"
+          >
+            {fixed &&
+              (results.length > 0
+                ? `Mostrando ${results.length} de ${jobs.length} ofertas.`
+                : `No hay ofertas para ${filters}.`)}
+          </p>
 
-        <div className="jobs__results" data-fix="empty">
-          {fixed && results.length === 0 ? (
-            <div className="jobs__empty">
-              <p>Prueba con otra palabra o con otra modalidad.</p>
-              <button type="button" className="jobs__clear" onClick={clear}>
-                Quitar los filtros
-              </button>
-            </div>
-          ) : (
-            <div
-              className="jobs__scroll"
-              role="region"
-              aria-labelledby={`${id}-results`}
-              tabIndex={0}
-            >
-              <table className="jobs__table">
-                <thead>
-                  <tr>
-                    {columns.map((column) => (
-                      <th key={column} scope="col">
-                        {column}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {results.map((job) => (
-                    <tr key={job[0]}>
-                      {job.map((value, index) => (
-                        <td key={columns[index]}>{value}</td>
+          <div className="jobs__results" data-fix="empty">
+            {fixed && results.length === 0 ? (
+              <div className="jobs__empty">
+                <p>Prueba con otra palabra o con otra modalidad.</p>
+                <button type="button" className="jobs__clear" onClick={clear}>
+                  Quitar los filtros
+                </button>
+              </div>
+            ) : (
+              <div
+                className="jobs__scroll"
+                role="region"
+                aria-labelledby={`${id}-results`}
+                tabIndex={0}
+              >
+                <table className="jobs__table">
+                  <thead>
+                    <tr>
+                      {columns.map((column) => (
+                        <th key={column} scope="col">
+                          {column}
+                        </th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+                  </thead>
+                  <tbody>
+                    {results.map((job) => (
+                      <tr key={job[0]}>
+                        {job.map((value, index) =>
+                          index === 3 ? (
+                            <td key={columns[index]}>
+                              <span
+                                className={`jobs__mode jobs__mode--${value
+                                  .toLocaleLowerCase('es')
+                                  .normalize('NFD')
+                                  .replace(/[\u0300-\u036f]/g, '')}`}
+                              >
+                                {value}
+                              </span>
+                            </td>
+                          ) : (
+                            <td key={columns[index]}>{value}</td>
+                          ),
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
         </div>
       </main>
       <footer className="jobs__footer">

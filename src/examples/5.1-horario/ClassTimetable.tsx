@@ -23,7 +23,21 @@ export function ClassTimetable({ fixed }: ExamplePageProps) {
   return (
     <div className={`timetable${fixed ? '' : ' timetable--barrier'}`}>
       <header className="timetable__header">
-        <p className="timetable__brand">Polideportivo Las Eras</p>
+        <p className="timetable__council">
+          Ayuntamiento de Las Eras · Concejalía de Deportes
+        </p>
+        <p className="timetable__brand">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 32 32"
+            className="timetable__logo"
+          >
+            <rect width="32" height="32" rx="9" />
+            <path d="M6 13c2.5-2 5-2 7.5 0s5 2 7.5 0 5-2 5-2M6 20c2.5-2 5-2 7.5 0s5 2 7.5 0 5-2 5-2" />
+          </svg>
+          Polideportivo Las Eras
+        </p>
         <nav aria-label="Principal" className="timetable__nav">
           <a href={`#${id}-main`}>Horario</a>
           <a href={`#${id}-main`}>Tarifas</a>
@@ -31,45 +45,88 @@ export function ClassTimetable({ fixed }: ExamplePageProps) {
         </nav>
       </header>
       <main id={`${id}-main`} className="timetable__main">
-        <h1>Horario de clases</h1>
-        <p className="timetable__intro">
-          Todas las clases duran 50 minutos. Las plazas se reservan con un día
-          de antelación.
-        </p>
-        <div className="timetable__frame">
-          <table
-            className="timetable__table"
-            role={fixed ? undefined : 'grid'}
-            data-fix="grid-role"
+        <div className="timetable__hero">
+          <div className="timetable__hero-text">
+            <p className="timetable__kicker">Temporada 2026–2027</p>
+            <h1>Horario de clases</h1>
+            <p className="timetable__intro">
+              Todas las clases duran 50 minutos. Las plazas se reservan con un
+              día de antelación.
+            </p>
+          </div>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 320 180"
+            className="timetable__art"
           >
-            <caption>Clases de esta semana</caption>
-            <thead>
-              <tr>
-                <th scope="col">Clase</th>
-                <th scope="col">Días</th>
-                <th scope="col">Hora</th>
-                <th scope="col">Sala</th>
-              </tr>
-            </thead>
-            <tbody data-fix="tab-stops">
-              {classes.map((item) => (
-                <tr key={item.name}>
-                  <th scope="row" tabIndex={stop}>
-                    {item.name}
-                  </th>
-                  <td tabIndex={stop}>{item.day}</td>
-                  <td tabIndex={stop}>{item.time}</td>
-                  <td tabIndex={stop}>{item.room}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+            <rect
+              width="320"
+              height="180"
+              rx="24"
+              className="timetable__art-water"
+            />
+            <path
+              className="timetable__art-lane"
+              d="M0 45h320M0 90h320M0 135h320"
+            />
+            <path
+              className="timetable__art-wave"
+              d="M24 70c12-8 24-8 36 0s24 8 36 0 24-8 36 0M150 118c12-8 24-8 36 0s24 8 36 0 24-8 36 0"
+            />
+            <circle cx="262" cy="46" r="20" className="timetable__art-sun" />
+            <rect
+              x="34"
+              y="104"
+              width="54"
+              height="40"
+              rx="10"
+              className="timetable__art-mat"
+            />
+          </svg>
         </div>
-        <p>
-          <a className="timetable__cta" href={`#${id}-main`}>
-            Reservar una clase
-          </a>
-        </p>
+        <div className="timetable__content">
+          <div className="timetable__frame">
+            <table
+              className="timetable__table"
+              role={fixed ? undefined : 'grid'}
+              data-fix="grid-role"
+            >
+              <caption>Clases de esta semana</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Clase</th>
+                  <th scope="col">Días</th>
+                  <th scope="col">Hora</th>
+                  <th scope="col">Sala</th>
+                </tr>
+              </thead>
+              <tbody data-fix="tab-stops">
+                {classes.map((item) => (
+                  <tr key={item.name}>
+                    <th scope="row" tabIndex={stop}>
+                      {item.name}
+                    </th>
+                    <td tabIndex={stop}>{item.day}</td>
+                    <td tabIndex={stop}>{item.time}</td>
+                    <td tabIndex={stop}>{item.room}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="timetable__book">
+            <p className="timetable__book-text">
+              Plazas limitadas a 20 personas por clase. Con el abono deportivo,
+              las clases están incluidas.
+            </p>
+            <p>
+              <a className="timetable__cta" href={`#${id}-main`}>
+                Reservar una clase
+              </a>
+            </p>
+          </div>
+        </div>
       </main>
       <footer className="timetable__footer">
         <p>Polideportivo Las Eras · Información de demostración</p>

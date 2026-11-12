@@ -57,7 +57,10 @@ export function CourseCatalog({ fixed }: ExamplePageProps) {
   return (
     <div className={`catalog${fixed ? '' : ' catalog--barrier'}`}>
       <header className="catalog__header">
-        <p className="catalog__brand">Academia Faro</p>
+        <p className="catalog__brand">
+          <span aria-hidden="true" className="catalog__logo" />
+          Academia Faro
+        </p>
         <nav aria-label="Principal" className="catalog__nav">
           <a href={`#${id}-list`}>Cursos</a>
           <a href={`#${id}-list`}>Profesorado</a>
@@ -124,6 +127,10 @@ export function CourseCatalog({ fixed }: ExamplePageProps) {
                 id={`${id}-${course.slug}`}
                 className={`card${course.featured ? ' card--featured' : ''}`}
               >
+                <span
+                  aria-hidden="true"
+                  className={`card__cover card__cover--${course.slug}`}
+                />
                 {course.featured && <p className="card__badge">Destacado</p>}
                 {fixed ? (
                   <>

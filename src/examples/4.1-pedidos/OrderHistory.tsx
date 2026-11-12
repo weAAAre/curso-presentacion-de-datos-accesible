@@ -12,6 +12,15 @@ const orders = [
   ['T-1011', '14 sep 2026', 'Estuche, gomas, regla', '9,95 €', 'Entregado'],
 ]
 
+/** Clases de cada columna: número de pedido, importe y estado. */
+const cellClasses = [
+  'orders__code',
+  undefined,
+  undefined,
+  'orders__amount',
+  undefined,
+]
+
 /** Historial de pedidos: título, encabezados de columna y desplazamiento. */
 export function OrderHistory({ fixed }: ExamplePageProps) {
   const id = useId()
@@ -47,11 +56,16 @@ export function OrderHistory({ fixed }: ExamplePageProps) {
         {orders.map((order) => (
           <tr key={order[0]}>
             {order.map((value, index) => (
-              <td
-                key={columns[index]}
-                className={index === 3 ? 'orders__amount' : undefined}
-              >
-                {value}
+              <td key={columns[index]} className={cellClasses[index]}>
+                {index === 4 ? (
+                  <span
+                    className={`orders__state orders__state--${value === 'Devuelto' ? 'returned' : 'delivered'}`}
+                  >
+                    {value}
+                  </span>
+                ) : (
+                  value
+                )}
               </td>
             ))}
           </tr>
@@ -63,7 +77,10 @@ export function OrderHistory({ fixed }: ExamplePageProps) {
   return (
     <div className={`orders${fixed ? '' : ' orders--barrier'}`}>
       <header className="orders__header">
-        <p className="orders__brand">Papelería Trazo</p>
+        <p className="orders__brand">
+          <span aria-hidden="true" className="orders__logo" />
+          Papelería Trazo
+        </p>
         <nav aria-label="Mi cuenta" className="orders__nav">
           <a href={`#${id}-main`} aria-current="page">
             Pedidos

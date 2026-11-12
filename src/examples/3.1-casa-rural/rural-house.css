@@ -1,28 +1,39 @@
-/* Casa rural con el lenguaje visual de weAAAre. */
+/* Casa rural El Roble: alojamiento en Asturias. Verde pino, lino y miel. */
 .rural-house {
-  --page-accent: var(--color-surface);
+  --pine: #2c4a32;
+  --pine-dark: #1d3322;
+  --moss: #e7eee2;
+  --linen: #f7f3ea;
+  --card: #fffdf8;
+  --honey: #c98a1b;
+  --honey-ink: #8a5208;
+  --ink: #1f2a22;
+  --ink-soft: #55604f;
+  --line: #ddd5c4;
 
   min-block-size: 100vh;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  background: var(--linen);
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .rural-house a {
-  color: var(--color-ink);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
+  color: var(--pine);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
 }
 
 .rural-house a:hover {
-  background: var(--color-accent);
+  color: var(--pine-dark);
+  text-decoration-thickness: 2px;
 }
 
 .rural-house :focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--honey-ink);
+  outline-offset: 3px;
 }
 
 .rural-house__header {
@@ -30,82 +41,175 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: var(--border);
-  background: var(--page-accent);
-}
-
-.rural-house__header :focus-visible {
-  outline-color: var(--color-ink);
+  gap: 1rem 2rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  border-block-end: 1px solid var(--line);
+  background: var(--card);
 }
 
 .rural-house__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   margin: 0;
-  font-family: var(--font-body);
+  color: var(--pine-dark);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.rural-house__logo {
+  inline-size: 2rem;
+  block-size: 2rem;
+  fill: var(--pine);
+}
+
+.rural-house__logo-trunk {
+  fill: var(--honey);
 }
 
 .rural-house__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.25rem 1.75rem;
+}
+
+.rural-house .rural-house__nav a {
+  color: var(--ink);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.rural-house .rural-house__nav a:hover {
+  color: var(--pine);
+  text-decoration: underline;
 }
 
 .rural-house__main {
-  max-inline-size: 48rem;
+  max-inline-size: 76rem;
   margin-inline: auto;
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 4rem)
+    clamp(3rem, 6vw, 5rem);
+}
+
+/* Portada: texto e ilustración en dos columnas que se apilan en el móvil. */
+.rural-house__hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.rural-house__kicker {
+  margin: 0;
+  color: var(--honey-ink);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .rural-house h1 {
+  margin: 0.5rem 0 1rem;
   font-family: var(--font-display);
   font-variation-settings: var(--font-display-settings);
+  font-size: clamp(2.25rem, 1.4rem + 2.8vw, 3.5rem);
   font-weight: 500;
-  line-height: 1.15;
-}
-
-.rural-house h2 {
-  font-family: var(--font-body);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.rural-house h1 {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  line-height: 1.06;
+  color: var(--pine-dark);
 }
 
 .rural-house__intro {
-  margin-block-start: 0;
-  color: var(--color-ink-medium);
+  max-inline-size: 32rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.25rem;
+}
+
+.rural-house__price {
+  display: inline-block;
+  margin: 1.5rem 0 0;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: var(--moss);
+  color: var(--pine-dark);
+}
+
+.rural-house__price strong {
+  font-size: 1.25rem;
+}
+
+.rural-house__art {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgb(29 51 34 / 0.14);
+}
+
+/* Cuerpo: servicios y llegada a la izquierda; datos y reserva en una tarjeta. */
+.rural-house__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  margin-block-start: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 60rem) {
+  .rural-house__body {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .rural-house__section--facts {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
 }
 
 .rural-house__section {
-  margin-block-start: 2.5rem;
+  margin: 0;
 }
 
 .rural-house h2 {
-  margin-block: 0 0.75rem;
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
   font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--pine-dark);
 }
 
 .rural-house__services {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .rural-house__services > * {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0;
-  padding: 0.25rem 0.9rem;
-  border: var(--border);
-  border-radius: var(--radius-pill);
-  background: var(--page-accent);
+  padding: 0.45rem 1rem 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--moss);
+  color: var(--pine-dark);
+  font-size: 1.0625rem;
+}
+
+.rural-house__services > *::before {
+  inline-size: 0.55rem;
+  block-size: 0.55rem;
+  border-radius: 0 50%;
+  background: var(--pine);
+  content: "";
 }
 
 .rural-house__services span {
@@ -121,8 +225,8 @@
 
 .rural-house__steps > * {
   position: relative;
-  margin-block: 0.75rem;
-  padding-inline-start: 3rem;
+  margin: 0;
+  padding: 0.35rem 0 1.5rem 3.5rem;
   counter-increment: paso;
 }
 
@@ -132,83 +236,113 @@
   inset-block-start: 0;
   display: grid;
   place-items: center;
-  inline-size: 2rem;
-  block-size: 2rem;
-  border: var(--border);
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
   border-radius: 50%;
-  background: var(--color-surface);
+  background: var(--pine);
+  color: #fff;
   content: counter(paso);
   font-weight: 700;
 }
 
+/* Hilo que une los pasos. */
+.rural-house__steps > *:not(:last-child)::after {
+  position: absolute;
+  inset-block: 2.5rem 0.25rem;
+  inset-inline-start: calc(1.125rem - 1px);
+  border-inline-start: 2px dashed #b9c7b4;
+  content: "";
+}
+
+.rural-house__steps > :last-child {
+  padding-block-end: 0;
+}
+
+/* Tarjeta de datos y reserva. */
+.rural-house__section--facts {
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--card);
+  box-shadow: 0 14px 34px rgb(29 51 34 / 0.1);
+}
+
 .rural-house__facts {
   display: grid;
-  gap: 0.5rem;
   margin: 0;
 }
 
 .rural-house__fact {
   display: grid;
-  grid-template-columns: 9rem 1fr;
-  gap: 1rem;
-  padding-block: 0.5rem;
-  border-block-end: 1px solid var(--color-rule-soft);
+  grid-template-columns: 8.5rem 1fr;
+  padding-block: 0.7rem;
+  border-block-end: 1px solid var(--line);
 }
 
 .rural-house__fact dt {
-  font-weight: 700;
+  padding-inline-end: 1rem;
+  color: var(--ink-soft);
 }
 
 .rural-house__fact dd {
   margin: 0;
-}
-
-.rural-house__book {
-  display: inline-block;
-  margin-block-start: 1.5rem;
-  padding: 0.6rem 1.25rem;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background: var(--color-ink);
-  box-shadow:
-    0 4px 0 0 var(--page-accent),
-    0 4px 0 2px var(--color-ink);
   font-weight: 700;
 }
 
 .rural-house .rural-house__book {
-  color: var(--color-paper);
+  display: block;
+  margin-block-start: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  background: var(--pine);
+  color: #fff;
+  text-align: center;
   text-decoration: none;
 }
 
 .rural-house .rural-house__book:hover {
-  background: var(--color-ink);
-  transform: translateY(2px);
+  background: var(--pine-dark);
+  color: #fff;
 }
 
 .rural-house__footer {
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: var(--border);
-  color: var(--color-ink-soft);
-  font-size: 0.875rem;
+  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  background: var(--pine-dark);
+  color: #dfe7da;
+  font-size: 0.9375rem;
   text-align: center;
+}
+
+.rural-house__footer p {
+  margin: 0;
 }
 
 /*
  * Barrera deliberada: etiquetas y valores en dos columnas independientes.
  * Visualmente forman pares; en el orden del documento se leen por separado.
+ * Las columnas no tienen papel en la maqueta para que cada fila cuadre.
  */
 .rural-house--barrier .rural-house__facts {
-  grid-template-columns: 9rem 1fr;
-  gap: 0 1rem;
+  grid-template-columns: 8.5rem 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+}
+
+.rural-house--barrier .rural-house__fact-column {
+  display: contents;
 }
 
 .rural-house--barrier .rural-house__fact-column p {
   margin: 0;
-  padding-block: 0.5rem;
-  border-block-end: 1px solid var(--color-rule-soft);
+  padding-block: 0.7rem;
+  border-block-end: 1px solid var(--line);
+}
+
+.rural-house--barrier .rural-house__fact-column:last-child p {
+  font-weight: 700;
 }
 
 .rural-house--barrier .rural-house__term {
-  font-weight: 700;
+  padding-inline-end: 1rem;
+  color: var(--ink-soft);
 }

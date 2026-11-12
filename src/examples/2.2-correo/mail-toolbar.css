@@ -1,91 +1,161 @@
-/* Correo web con el lenguaje visual de weAAAre. */
+/* Buzón Brisa: correo web. Verde mar sobre gris espuma, todo en sans. */
 .mail {
-  --page-accent: var(--color-surface);
+  --sea: #0b6b72;
+  --sea-dark: #07494e;
+  --foam: #e6f4f3;
+  --page: #eef3f3;
+  --card: #fff;
+  --ink: #102a2c;
+  --ink-soft: #48605f;
+  --line: #d3e0df;
+  --tip: #102a2c;
 
   min-block-size: 100vh;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.55;
 }
 
 .mail a {
-  color: var(--color-ink);
-  text-decoration-thickness: 2px;
+  color: var(--sea);
+  font-weight: 700;
   text-underline-offset: 0.2em;
 }
 
-.mail a:hover {
-  background: var(--color-accent);
-}
-
 .mail :focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--sea);
+  outline-offset: 3px;
 }
 
+/* Barra de la aplicación: marca y carpetas. */
 .mail__header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: var(--border);
-  background: var(--page-accent);
+  gap: 0.5rem 2.5rem;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  background: var(--sea);
+  color: #fff;
 }
 
 .mail__header :focus-visible {
-  outline-color: var(--color-ink);
+  outline-color: #fff;
+  outline-offset: -3px;
 }
 
 .mail__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 1.5rem;
+  padding-block: 0.85rem;
+  font-size: 1.3125rem;
   font-weight: 700;
+}
+
+/* Marca: un sobre blanco con una ola. */
+.mail__logo {
+  position: relative;
+  inline-size: 2rem;
+  block-size: 1.5rem;
+  border-radius: 0.35rem;
+  background: #fff;
+}
+
+.mail__logo::before {
+  position: absolute;
+  inset: 0.3rem 0.3rem auto;
+  block-size: 0.55rem;
+  border: 0.18rem solid var(--sea);
+  border-block-start: 0;
+  border-radius: 0 0 1rem 1rem;
+  content: "";
 }
 
 .mail__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  align-self: stretch;
 }
 
-.mail__nav [aria-current="page"] {
+.mail .mail__nav a {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border-block-end: 4px solid transparent;
+  color: var(--foam);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.mail .mail__nav a:hover {
+  background: var(--sea-dark);
+  color: #fff;
+}
+
+.mail .mail__nav [aria-current="page"] {
+  border-block-end-color: #fff;
+  color: #fff;
   font-weight: 700;
 }
 
+/* Panel de lectura. */
 .mail__main {
-  max-inline-size: 48rem;
-  margin-inline: auto;
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  flex: 1;
+  box-sizing: border-box;
+  inline-size: min(100% - 2rem, 64rem);
+  margin: clamp(1rem, 3vw, 2rem) auto;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: 0 10px 30px rgb(7 73 78 / 0.08);
 }
 
 .mail h1 {
   margin: 0;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem);
-  font-weight: 500;
-  line-height: 1.15;
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .mail__from {
-  margin-block: 0.25rem 1.5rem;
-  color: var(--color-ink-medium);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 1rem 1.25rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
 }
 
+.mail__avatar {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 50%;
+  background: #f6e3c8;
+  color: #6b3f0c;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* Barra de acciones del mensaje. */
 .mail__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1rem;
-  padding: 0.75rem;
-  border: var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--color-paper);
+  gap: 0.5rem 0.4rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.85rem;
+  background: var(--foam);
 }
 
 .mail__tip {
@@ -99,23 +169,20 @@
   inline-size: 2.75rem;
   block-size: 2.75rem;
   padding: 0;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-  color: var(--color-ink);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--sea-dark);
   cursor: pointer;
 }
 
 .mail__action:hover {
-  background: var(--color-accent);
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 0 var(--color-ink);
+  background: #c9e6e3;
 }
 
 .mail__action svg {
-  inline-size: 1.5rem;
-  block-size: 1.5rem;
+  inline-size: 1.4rem;
+  block-size: 1.4rem;
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -131,11 +198,13 @@
   z-index: 1;
   inline-size: max-content;
   max-inline-size: 16rem;
-  padding: 0.4rem 0.7rem;
-  border-radius: var(--radius-sm);
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-size: 0.875rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--tip);
+  box-shadow: 0 6px 18px rgb(16 42 44 / 0.2);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 400;
   line-height: 1.4;
 }
 
@@ -145,10 +214,12 @@
 
 .mail__help {
   flex: 1 1 14rem;
+  padding-inline: 0.75rem;
+  border-inline-start: 1px solid #b5d3d0;
 }
 
 .mail__help-text {
-  color: var(--color-ink-medium);
+  color: var(--ink-soft);
   font-size: 0.9375rem;
 }
 
@@ -156,11 +227,11 @@
   position: relative;
   display: inline-grid;
   place-items: center;
-  inline-size: 1.5rem;
-  block-size: 1.5rem;
-  border: 2px solid var(--color-ink-soft);
+  inline-size: 1.6rem;
+  block-size: 1.6rem;
+  border: 2px solid var(--ink-soft);
   border-radius: 50%;
-  color: var(--color-ink-soft);
+  color: var(--ink-soft);
   font-size: 0.875rem;
   font-weight: 700;
   cursor: help;
@@ -168,14 +239,17 @@
 
 .mail__status {
   min-block-size: 1.6em;
-  margin-block: 1rem;
+  margin-block: 0.75rem;
+  color: var(--sea-dark);
   font-weight: 700;
 }
 
 .mail__body {
-  padding: 1.25rem;
-  border: var(--border);
-  border-radius: var(--radius-lg);
+  max-inline-size: 44rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--line);
+  font-size: 1.125rem;
+  line-height: 1.7;
 }
 
 .mail__body p:first-child {
@@ -187,11 +261,14 @@
 }
 
 .mail__footer {
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: var(--border);
-  color: var(--color-ink-soft);
-  font-size: 0.875rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem) 1.5rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
   text-align: center;
+}
+
+.mail__footer p {
+  margin: 0;
 }
 
 /*

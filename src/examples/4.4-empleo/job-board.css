@@ -1,28 +1,31 @@
-/* Portal de empleo con el lenguaje visual de weAAAre. */
+/* Brote Empleo: portal de empleo. Verde bosque, menta y un brote lima. */
 .jobs {
-  --page-accent: var(--color-surface);
+  --green: #17693c;
+  --green-dark: #0c3d23;
+  --mint: #eaf6ee;
+  --lime: #c3ec6a;
+  --ink: #15211a;
+  --ink-soft: #4b5a51;
+  --line: #d6e4da;
+  --field-line: #6f8578;
 
   min-block-size: 100vh;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  background: #f5f8f5;
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.55;
 }
 
 .jobs a {
-  color: var(--color-ink);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
-}
-
-.jobs a:hover {
-  background: var(--color-accent);
+  color: var(--green);
+  font-weight: 700;
+  text-underline-offset: 0.25em;
 }
 
 .jobs :focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--green-dark);
+  outline-offset: 3px;
 }
 
 .jobs__header {
@@ -30,91 +33,177 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: var(--border);
-  background: var(--page-accent);
-}
-
-.jobs__header :focus-visible {
-  outline-color: var(--color-ink);
+  gap: 1rem 2rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  border-block-end: 1px solid var(--line);
+  background: #fff;
 }
 
 .jobs__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   margin: 0;
-  font-family: var(--font-body);
+  color: var(--green-dark);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Marca: un brote con dos hojas. */
+.jobs__logo {
+  flex: none;
+  inline-size: 2rem;
+  block-size: 2rem;
+}
+
+.jobs__logo-stem {
+  fill: none;
+  stroke: var(--green-dark);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.jobs__logo-leaf {
+  fill: var(--green);
+}
+
+.jobs__logo-leaf--new {
+  fill: #7cc242;
 }
 
 .jobs__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.5rem 1.75rem;
+}
+
+.jobs .jobs__nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.jobs .jobs__nav a:hover {
+  color: var(--green);
+  text-decoration: underline;
 }
 
 .jobs__main {
-  max-inline-size: 64rem;
+  padding-block-end: 4rem;
+}
+
+.jobs__hero {
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 5vw, 4rem) 6.5rem;
+  background:
+    radial-gradient(
+      circle at 88% 20%,
+      rgb(195 236 106 / 0.35) 0 9rem,
+      transparent 9rem
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgb(255 255 255 / 0.07) 0 16rem,
+      transparent 16rem
+    ),
+    var(--green-dark);
+  color: #fff;
+}
+
+.jobs__hero > * {
+  max-inline-size: 72rem;
   margin-inline: auto;
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
 .jobs h1 {
-  margin: 0 0 0.5rem;
+  margin-block: 0 0.75rem;
   font-family: var(--font-display);
   font-variation-settings: var(--font-display-settings);
-  font-weight: 500;
-  line-height: 1.15;
+  font-size: clamp(2.25rem, 1.3rem + 3.4vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
 }
 
-.jobs h2 {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-body);
-  font-weight: 700;
-  line-height: 1.15;
+.jobs__intro {
+  max-inline-size: 72rem;
+  margin-block: 0;
+  color: #dcefe2;
+  font-size: 1.25rem;
 }
 
-.jobs h1 {
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
-}
-
+/* Buscador: tarjeta blanca que se apoya sobre la cabecera. */
 .jobs__filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  margin-block: 1.5rem 2rem;
-  padding: 1.25rem;
-  border: var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--color-paper);
+  align-items: end;
+  gap: 1rem 1.25rem;
+  max-inline-size: min(72rem, 100% - 2rem);
+  margin: -4rem auto 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(12 61 35 / 0.08),
+    0 18px 40px rgb(12 61 35 / 0.16);
 }
 
 .jobs__field {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.35rem;
   flex: 1 1 14rem;
 }
 
+.jobs__field:first-child {
+  flex-grow: 2;
+}
+
 .jobs__field label {
+  color: var(--ink);
+  font-size: 0.9375rem;
   font-weight: 700;
 }
 
 .jobs__field input,
 .jobs__field select {
-  min-block-size: 2.75rem;
-  padding: 0.4rem 0.75rem;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  color: var(--color-ink);
+  inline-size: 100%;
+  min-block-size: 3.25rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--field-line);
+  border-radius: 0.75rem;
+  background-color: #fff;
+  color: var(--ink);
+}
+
+.jobs__field input {
+  padding-inline-start: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317693c' stroke-width='2.5' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='m15.5 15.5 5 5'/%3E%3C/svg%3E");
+  background-position: 0.9rem 50%;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+}
+
+.jobs__field input:hover,
+.jobs__field select:hover {
+  border-color: var(--green);
 }
 
 .jobs__field input::placeholder {
-  color: var(--color-ink-soft);
+  color: #5c6b62;
 }
 
-.jobs__results-title {
-  font-size: 1.75rem;
+.jobs__body {
+  max-inline-size: min(72rem, 100% - 2rem);
+  margin: 2.5rem auto 0;
+}
+
+.jobs h2 {
+  margin-block: 0 0.25rem;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .jobs__results-title:focus {
@@ -122,66 +211,146 @@
 }
 
 .jobs__count {
-  min-block-size: 1.6em;
+  min-block-size: 1.55em;
   margin-block: 0 1rem;
-  font-weight: 700;
+  color: var(--ink-soft);
 }
 
 .jobs__scroll {
   max-inline-size: 100%;
   overflow-x: auto;
-  border: var(--border);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(12 61 35 / 0.06);
 }
 
 .jobs__table {
   inline-size: 100%;
-  min-inline-size: 44rem;
+  min-inline-size: 48rem;
   border-collapse: collapse;
 }
 
 .jobs__table th,
 .jobs__table td {
-  padding: 0.6rem 1rem;
-  border-block-end: 1px solid var(--color-rule-soft);
+  padding: 1rem 1.25rem;
+  border-block-end: 1px solid var(--line);
   text-align: start;
+  vertical-align: middle;
 }
 
 .jobs__table thead th {
-  border-block-end: var(--border);
-  background: var(--page-accent);
+  padding-block: 0.75rem;
+  background: var(--mint);
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.jobs__table tr > :last-child {
+  text-align: end;
 }
 
 .jobs__table tbody tr:last-child td {
   border-block-end: 0;
 }
 
+.jobs__table tbody tr:hover {
+  background: #f8fcf9;
+}
+
+.jobs__table tbody td:first-child {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.jobs__table tbody td:nth-child(2),
+.jobs__table tbody td:nth-child(3) {
+  color: var(--ink-soft);
+}
+
+.jobs__table tbody td:last-child {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Modalidad: etiqueta con texto; el color solo la acompaña. */
+.jobs__mode {
+  display: inline-block;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.jobs__mode--remoto {
+  background: #e3f0fb;
+  color: #164a78;
+}
+
+.jobs__mode--hibrido {
+  background: #fdf1d6;
+  color: #6e4708;
+}
+
+.jobs__mode--presencial {
+  background: #f9e5ea;
+  color: #842943;
+}
+
 .jobs__empty {
-  padding: 1.25rem;
-  border: var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
+  padding: 2rem clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+  text-align: center;
+}
+
+.jobs__empty::before {
+  content: "";
+  display: block;
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background:
+    var(--mint)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317693c' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='m15.5 15.5 5 5M8 10.5h5'/%3E%3C/svg%3E")
+    50% / 1.75rem no-repeat;
 }
 
 .jobs__empty p {
-  margin-block-start: 0;
+  margin-block: 0 1.25rem;
+  color: var(--ink-soft);
 }
 
 .jobs__clear {
-  min-block-size: 2.75rem;
-  padding: 0.4rem 1rem;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background: var(--color-ink);
-  color: var(--color-paper);
+  min-block-size: 3rem;
+  padding: 0.5rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--green);
+  color: #fff;
   font-weight: 700;
   cursor: pointer;
 }
 
+.jobs__clear:hover {
+  background: var(--green-dark);
+}
+
 .jobs__footer {
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: var(--border);
-  color: var(--color-ink-soft);
-  font-size: 0.875rem;
+  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  border-block-start: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
   text-align: center;
+}
+
+.jobs__footer p {
+  margin: 0;
 }

@@ -1,24 +1,32 @@
-/* Academia con el lenguaje visual de weAAAre. */
+/* Academia Faro: cursos para adultos. Rojo faro y azul marino sobre arena. */
 .catalog {
-  --page-accent: var(--color-surface);
+  --coral: #c4323f;
+  --coral-dark: #9c2330;
+  --shell: #fde9e4;
+  --navy: #1b2a41;
+  --ink-soft: #4f5a6b;
+  --sand: #fbf6f0;
+  --card: #fff;
+  --line: #eadfd6;
+  --radius: 1.25rem;
 
   min-block-size: 100vh;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  background: var(--sand);
+  color: var(--navy);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.55;
 }
 
 .catalog a {
-  color: var(--color-ink);
-  text-decoration-thickness: 2px;
+  color: var(--coral-dark);
+  font-weight: 700;
   text-underline-offset: 0.2em;
 }
 
 .catalog :focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--coral-dark);
+  outline-offset: 3px;
 }
 
 .catalog__header {
@@ -26,86 +34,114 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: var(--border);
-  background: var(--page-accent);
-}
-
-.catalog__header :focus-visible {
-  outline-color: var(--color-ink);
-}
-
-.catalog__header a:hover {
-  background: var(--color-accent);
+  gap: 1rem 2rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  border-block-end: 1px solid var(--line);
+  background: var(--card);
 }
 
 .catalog__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   margin: 0;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+/* Marca: la torre de un faro, a franjas rojas y blancas. */
+.catalog__logo {
+  inline-size: 1.25rem;
+  block-size: 2rem;
+  border-radius: 0.3rem 0.3rem 0.15rem 0.15rem;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--coral) 0 0.4rem,
+    var(--shell) 0.4rem 0.7rem
+  );
+  box-shadow: inset 0 0 0 1px var(--coral);
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
 }
 
 .catalog__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.25rem 1.75rem;
+}
+
+.catalog .catalog__nav a {
+  color: var(--navy);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.catalog .catalog__nav a:hover {
+  color: var(--coral-dark);
+  text-decoration: underline;
 }
 
 .catalog__main {
-  max-inline-size: 70rem;
+  max-inline-size: 76rem;
   margin-inline: auto;
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 5vw, 4rem) 4rem;
 }
 
 .catalog h1 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
   font-family: var(--font-display);
   font-variation-settings: var(--font-display-settings);
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  font-size: clamp(2.25rem, 1.4rem + 2.8vw, 3.5rem);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.06;
 }
 
 .catalog__intro {
-  margin-block-start: 0;
-  color: var(--color-ink-medium);
+  max-inline-size: 38rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.1875rem;
 }
 
+/* Selector de vista: control segmentado. */
 .catalog__views {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
+  gap: 0.5rem 0.25rem;
+  margin: 2rem 0 1.5rem;
   padding: 0;
   border: 0;
 }
 
 .catalog__views legend {
   float: inline-start;
-  margin-inline-end: 0.5rem;
+  margin-inline-end: 0.75rem;
+  color: var(--ink-soft);
   font-weight: 700;
 }
 
-.catalog__views button,
-.card__save {
+.catalog__views button {
   min-block-size: 2.75rem;
-  padding: 0.4rem 1rem;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-  color: var(--color-ink);
+  padding: 0.4rem 1.1rem;
+  border: 1px solid #76839a;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--navy);
+  font: inherit;
   font-weight: 700;
   cursor: pointer;
 }
 
-.catalog__views button[aria-pressed="true"],
-.card__save[aria-pressed="true"] {
-  background: var(--color-ink);
-  color: var(--color-paper);
+.catalog__views button:hover {
+  border-color: var(--navy);
+}
+
+.catalog__views button[aria-pressed="true"] {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: #fff;
 }
 
 .catalog__list {
@@ -117,7 +153,7 @@
 }
 
 .catalog__list--grid {
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15.5rem), 1fr));
 }
 
 .card {
@@ -125,28 +161,93 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 1.25rem;
-  border: var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  padding: 1.25rem 1.5rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 6px 20px rgb(27 42 65 / 0.07);
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 30px rgb(27 42 65 / 0.13);
 }
 
 .card--featured {
-  background: var(--color-surface);
+  border-color: var(--coral);
+  box-shadow:
+    0 0 0 1px var(--coral),
+    0 10px 28px rgb(196 50 63 / 0.16);
+}
+
+/* Portada decorativa de cada curso. */
+.card__cover {
+  display: block;
+  block-size: 7.5rem;
+  margin: -1.25rem -1.5rem 0.5rem;
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+  background-color: #e9edf3;
+}
+
+.card__cover--excel {
+  background:
+    linear-gradient(to top, #2f7d4f 0 40%, transparent 0) 58% 100% / 12% 70%
+    no-repeat,
+    linear-gradient(to top, #2f7d4f 0 70%, transparent 0) 72% 100% / 12% 70%
+    no-repeat,
+    linear-gradient(to top, #2f7d4f 0 100%, transparent 0) 86% 100% / 12% 70%
+    no-repeat,
+    repeating-linear-gradient(to right, #b9dcc4 0 1px, transparent 1px 2.5rem),
+    repeating-linear-gradient(to bottom, #b9dcc4 0 1px, transparent 1px 1.5rem),
+    #e3f2e8;
+}
+
+.card__cover--fotografia {
+  background:
+    radial-gradient(
+      circle at 70% 55%,
+      #3b2a1a 0 12%,
+      #f2a541 12% 20%,
+      #fff3df 20% 24%,
+      transparent 24%
+    ),
+    linear-gradient(160deg, #fde3bf, #f8c98b);
+}
+
+.card__cover--ingles {
+  background:
+    radial-gradient(circle at 78% 38%, #fff 0 9%, transparent 9.5%),
+    radial-gradient(circle at 70% 44%, #fff 0 10%, transparent 10.5%),
+    radial-gradient(circle at 86% 46%, #fff 0 8%, transparent 8.5%),
+    repeating-linear-gradient(
+      -45deg,
+      #c4323f 0 0.6rem,
+      #dce8fb 0.6rem 1.2rem,
+      #1b4e9b 1.2rem 1.8rem,
+      #dce8fb 1.8rem 2.4rem
+    )
+    0 100% / 100% 0.6rem no-repeat,
+    linear-gradient(#bcd4f6, #dce8fb);
+}
+
+.card__cover--huerto {
+  background:
+    radial-gradient(ellipse 14% 30% at 30% 70%, #4f8a3c 98%, transparent),
+    radial-gradient(ellipse 14% 30% at 44% 62%, #6aa84f 98%, transparent),
+    radial-gradient(ellipse 14% 30% at 58% 70%, #4f8a3c 98%, transparent),
+    radial-gradient(ellipse 12% 26% at 72% 64%, #6aa84f 98%, transparent),
+    linear-gradient(to top, #8a5a3b 0 22%, transparent 22%),
+    linear-gradient(#f1f6e6, #dfeccb);
 }
 
 .card__badge {
-  align-self: flex-start;
+  position: absolute;
+  inset-block-start: 0.85rem;
+  inset-inline-start: 0.85rem;
   margin: 0;
-  padding: 0 0.7rem;
-  border: var(--border);
-  border-radius: var(--radius-pill);
-  background: var(--page-accent);
+  padding: 0.1rem 0.75rem;
+  border-radius: 999px;
+  background: var(--coral-dark);
+  color: #fff;
   font-size: 0.875rem;
   font-weight: 700;
 }
@@ -154,27 +255,40 @@
 .card__title {
   display: block;
   margin: 0;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
   font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.catalog .card__title a,
+.catalog .card__title {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.catalog .card__link:hover .card__title,
+.catalog .card__title a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 /* Toda la card responde al clic del enlace, sin envolver la acción secundaria. */
 .card__link::after {
   position: absolute;
   inset: 0;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   content: "";
 }
 
-.card__link:focus-visible {
+.catalog .card__link:focus-visible {
   outline: none;
 }
 
-.card__link:focus-visible::after {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+.catalog .card__link:focus-visible::after {
+  outline: 3px solid var(--coral-dark);
+  outline-offset: 3px;
 }
 
 .card__meta,
@@ -183,23 +297,72 @@
 }
 
 .card__meta {
-  color: var(--color-ink-medium);
+  color: var(--coral-dark);
+  font-size: 0.9375rem;
   font-weight: 700;
+}
+
+.card__summary {
+  color: var(--ink-soft);
 }
 
 .card__save {
   position: relative;
   z-index: 1;
   align-self: flex-start;
+  min-block-size: 2.75rem;
   margin-block-start: auto;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--coral-dark);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--coral-dark);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card__save:hover {
+  background: var(--shell);
+}
+
+.card__save[aria-pressed="true"] {
+  background: var(--coral-dark);
+  color: #fff;
+}
+
+/* Vista de lista: la portada pasa a la izquierda. */
+.catalog__list--list .card {
+  min-block-size: 9rem;
+  padding-inline-start: calc(clamp(5.5rem, 22vw, 11rem) + 1.5rem);
+}
+
+.catalog__list--list .card__cover {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: clamp(5.5rem, 22vw, 11rem);
+  block-size: auto;
+  margin: 0;
+  border-radius: calc(var(--radius) - 1px) 0 0 calc(var(--radius) - 1px);
+}
+
+.catalog__list--list .card__badge {
+  position: static;
+  align-self: flex-start;
 }
 
 .catalog__footer {
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: var(--border);
-  color: var(--color-ink-soft);
-  font-size: 0.875rem;
+  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  border-block-start: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
   text-align: center;
+}
+
+.catalog__footer p {
+  margin: 0;
 }
 
 /*
@@ -209,9 +372,11 @@
  */
 .catalog--barrier .card__link--wrapper {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.5rem;
-  color: var(--color-ink);
+  color: var(--navy);
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -220,8 +385,8 @@
 }
 
 .catalog--barrier .card__link--wrapper:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--coral-dark);
+  outline-offset: 3px;
 }
 
 .catalog--barrier .catalog__list--grid .card--featured {

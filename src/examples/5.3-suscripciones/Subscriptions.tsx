@@ -94,7 +94,10 @@ export function Subscriptions({ fixed }: ExamplePageProps) {
   return (
     <div className={`subs${fixed ? '' : ' subs--barrier'}`}>
       <header className="subs__header">
-        <p className="subs__brand">Quiosco Papel</p>
+        <p className="subs__brand">
+          <span aria-hidden="true" className="subs__logo" />
+          Quiosco Papel
+        </p>
         <nav aria-label="Principal" className="subs__nav">
           <a href={`#${id}-main`}>Revistas</a>
           <a href={`#${id}-main`}>Mis suscripciones</a>
@@ -102,6 +105,7 @@ export function Subscriptions({ fixed }: ExamplePageProps) {
         </nav>
       </header>
       <main id={`${id}-main`} className="subs__main">
+        <p className="subs__account">Cuenta de Marta Llorente · Plan lector</p>
         <h1>Mis suscripciones</h1>
         <p className="subs__intro">
           Dentro de la tabla, muévete con las flechas. Puedes darte de baja
@@ -135,6 +139,10 @@ export function Subscriptions({ fixed }: ExamplePageProps) {
                 {items.map((item, row) => (
                   <tr key={item.name}>
                     <th scope="row" {...cell(row, 0)}>
+                      <span
+                        aria-hidden="true"
+                        className={`subs__cover subs__cover--${magazines.indexOf(item)}`}
+                      />
                       {item.name}
                     </th>
                     <td className="subs__price" {...cell(row, 1)}>

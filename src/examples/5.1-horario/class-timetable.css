@@ -1,28 +1,33 @@
-/* Polideportivo con el lenguaje visual de weAAAre. */
+/* Polideportivo Las Eras: instalación municipal. Azul piscina y sol de tarde. */
 .timetable {
-  --page-accent: var(--color-surface);
+  --teal: #0a6c74;
+  --teal-dark: #06474d;
+  --aqua: #e3f3f2;
+  --water: #bfe6e6;
+  --sun: #f6b740;
+  --coral: #ec7a5c;
+  --ink: #102426;
+  --ink-soft: #485d5f;
+  --line: #d3e5e4;
+  --gutter: clamp(1rem, 5vw, 4rem);
 
   min-block-size: 100vh;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  background: #f7fbfb;
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.55;
 }
 
 .timetable a {
-  color: var(--color-ink);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
-}
-
-.timetable a:hover {
-  background: var(--color-accent);
+  color: var(--teal);
+  font-weight: 700;
+  text-underline-offset: 0.25em;
 }
 
 .timetable :focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--teal-dark);
+  outline-offset: 3px;
 }
 
 .timetable__header {
@@ -30,113 +35,290 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: var(--border);
-  background: var(--page-accent);
+  gap: 1rem 2rem;
+  padding: 0 var(--gutter) 1rem;
+  border-block-end: 1px solid var(--line);
+  background: #fff;
 }
 
-.timetable__header :focus-visible,
-.timetable__table thead :focus-visible {
-  outline-color: var(--color-ink);
+.timetable__council {
+  flex: 0 0 calc(100% + 2 * var(--gutter));
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0.4rem var(--gutter);
+  background: var(--teal-dark);
+  color: #e6f4f3;
+  font-size: 0.875rem;
 }
 
 .timetable__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 1.5rem;
+  color: var(--teal-dark);
+  font-size: 1.375rem;
   font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Marca: dos olas sobre el azul de la piscina. */
+.timetable__logo {
+  flex: none;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+}
+
+.timetable__logo rect {
+  fill: var(--teal);
+}
+
+.timetable__logo path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.4;
+  stroke-linecap: round;
 }
 
 .timetable__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.5rem 1.75rem;
+}
+
+.timetable .timetable__nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.timetable .timetable__nav a:hover {
+  color: var(--teal);
+  text-decoration: underline;
 }
 
 .timetable__main {
-  max-inline-size: 60rem;
-  margin-inline: auto;
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  padding-block-end: 4rem;
+}
+
+.timetable__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+  padding: clamp(2rem, 5vw, 3.5rem) max(var(--gutter), (100% - 72rem) / 2);
+  background: linear-gradient(180deg, var(--aqua), #f7fbfb);
+}
+
+.timetable__kicker {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.15rem 0.8rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--teal-dark);
+  font-size: 0.9375rem;
+  font-weight: 700;
 }
 
 .timetable h1 {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
-  font-weight: 500;
-  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  color: var(--teal-dark);
+  font-family: var(--font-body);
+  font-size: clamp(2.25rem, 1.3rem + 3.4vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
 }
 
 .timetable__intro {
-  margin-block-start: 0;
-  color: var(--color-ink-medium);
+  max-inline-size: 34rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.25rem;
+}
+
+.timetable__art {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 16px 36px rgb(6 71 77 / 0.16);
+}
+
+.timetable__art-water {
+  fill: #3aa6ae;
+}
+
+.timetable__art-lane {
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 10 8;
+  stroke-width: 3;
+  opacity: 0.75;
+}
+
+.timetable__art-wave {
+  fill: none;
+  stroke: var(--water);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.timetable__art-sun {
+  fill: var(--sun);
+}
+
+.timetable__art-mat {
+  fill: var(--coral);
+}
+
+.timetable__content {
+  max-inline-size: min(72rem, 100% - 2rem);
+  margin: 1.5rem auto 0;
+}
+
+.timetable__frame {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(6 71 77 / 0.06);
 }
 
 .timetable__table {
   inline-size: 100%;
-  min-inline-size: 38rem;
+  min-inline-size: 40rem;
   border-collapse: collapse;
 }
 
 .timetable__table caption {
-  padding: 1rem 1rem 0.5rem;
-  font-family: var(--font-body);
-  font-size: 1.5rem;
+  padding: 1.25rem 1.5rem 0.75rem;
+  color: var(--ink);
+  font-size: 1.375rem;
   font-weight: 700;
   text-align: start;
 }
 
 .timetable__table th,
 .timetable__table td {
-  padding: 0.6rem 1rem;
-  border-block-end: 1px solid var(--color-rule-soft);
+  padding: 1rem 1.5rem;
+  border-block-end: 1px solid var(--line);
   text-align: start;
+  vertical-align: middle;
 }
 
 .timetable__table thead th {
-  border-block-end: var(--border);
-  background: var(--page-accent);
-  font-weight: 700;
-}
-
-.timetable__footer {
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: var(--border);
-  color: var(--color-ink-soft);
+  padding-block: 0.75rem;
+  background: var(--aqua);
+  color: var(--teal-dark);
   font-size: 0.875rem;
-  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.timetable__frame {
-  max-inline-size: 100%;
-  overflow-x: auto;
-  border: var(--border);
-  border-radius: var(--radius-lg);
+.timetable__table tbody tr:last-child > * {
+  border-block-end: 0;
 }
 
 .timetable__table tbody th {
+  font-size: 1.125rem;
   font-weight: 700;
 }
 
-.timetable__cta {
+/* Cada clase lleva su color de sala; el nombre siempre está escrito. */
+.timetable__table tbody th::before {
+  content: "";
   display: inline-block;
-  margin-block-start: 1rem;
-  padding: 0.6rem 1.25rem;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background: var(--color-ink);
-  color: var(--color-paper);
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  margin-inline-end: 0.75rem;
+  border-radius: 50%;
+  background: var(--teal);
+  vertical-align: 0.05em;
+}
+
+.timetable__table tbody tr:nth-child(2) th::before {
+  background: var(--coral);
+}
+
+.timetable__table tbody tr:nth-child(3) th::before {
+  background: var(--sun);
+}
+
+.timetable__table tbody tr:nth-child(4) th::before {
+  background: #3aa6ae;
+}
+
+.timetable__table tbody td:nth-child(3) {
+  font-family: var(--font-mono);
   font-weight: 700;
-  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.timetable__table tbody td:nth-child(4) {
+  color: var(--ink-soft);
+}
+
+/* Las celdas con tabindex (la barrera) muestran el foco dentro de la celda. */
+.timetable__table tbody [tabindex]:focus-visible {
+  outline-offset: -4px;
+  background: var(--aqua);
+}
+
+.timetable__book {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-block-start: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.25rem;
+  background: var(--aqua);
+}
+
+.timetable__book p {
+  margin: 0;
+}
+
+.timetable__book-text {
+  flex: 1 1 20rem;
+  color: var(--ink-soft);
 }
 
 .timetable .timetable__cta {
-  color: var(--color-paper);
+  display: inline-block;
+  padding: 0.8rem 1.75rem;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #fff;
+  text-decoration: none;
 }
 
 .timetable .timetable__cta:hover {
-  background: var(--color-accent);
-  color: var(--color-ink);
+  background: var(--teal-dark);
+}
+
+.timetable__footer {
+  padding: 1.5rem var(--gutter);
+  background: var(--teal-dark);
+  color: #e6f4f3;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.timetable__footer p {
+  margin: 0;
+}
+
+@media (max-width: 44rem) {
+  .timetable__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .timetable__art {
+    max-inline-size: 26rem;
+  }
 }

@@ -44,7 +44,10 @@ export function CourtBooking({ fixed }: ExamplePageProps) {
   return (
     <div className={`courts${fixed ? '' : ' courts--barrier'}`}>
       <header className="courts__header">
-        <p className="courts__brand">Pádel La Red</p>
+        <p className="courts__brand">
+          <span aria-hidden="true" className="courts__logo" />
+          Pádel La Red
+        </p>
         <nav aria-label="Principal" className="courts__nav">
           <a href={`#${id}-main`}>Reservar</a>
           <a href={`#${id}-main`}>Clases</a>
@@ -52,80 +55,95 @@ export function CourtBooking({ fixed }: ExamplePageProps) {
         </nav>
       </header>
       <main id={`${id}-main`} className="courts__main">
-        <h1>Reservar una pista</h1>
-        <p className="courts__intro">Sábado 14 de noviembre de 2026.</p>
-        <p id={`${id}-hint`} className="courts__hint" data-fix="hint">
-          Elige una hora libre.
-          {fixed &&
-            ' Dentro de la tabla, muévete con las flechas y pulsa Enter para elegir.'}
-        </p>
-        <div className="courts__frame">
-          <table
-            ref={grid}
-            className="courts__table"
-            role="grid"
-            aria-describedby={fixed ? `${id}-hint` : undefined}
-            data-fix="arrows"
-            onKeyDown={onKeyDown}
-          >
-            <caption>Pistas disponibles</caption>
-            <thead>
-              <tr>
-                <th scope="col">Hora</th>
-                {courts.map((court) => (
-                  <th key={court} scope="col">
-                    {court}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody data-fix="one-stop">
-              {hours.map((hour, row) => (
-                <tr key={hour}>
-                  <th scope="row">{hour}</th>
-                  {courts.map((court, column) => {
-                    const key = `${row}-${column}`
-                    const isTaken = taken.has(key)
-                    const state = isTaken
-                      ? 'Ocupada'
-                      : chosen === key
-                        ? 'Elegida'
-                        : 'Libre'
-                    const isActive =
-                      active.row === row && active.column === column
-                    return (
-                      <td key={court}>
-                        <button
-                          type="button"
-                          className={`courts__slot courts__slot--${isTaken ? 'taken' : chosen === key ? 'chosen' : 'free'}`}
-                          aria-label={`${hour}, ${court}: ${state}`}
-                          aria-disabled={isTaken || undefined}
-                          // Arreglo: solo la celda activa está en el orden de Tab.
-                          tabIndex={fixed ? (isActive ? 0 : -1) : undefined}
-                          data-row={row}
-                          data-column={column}
-                          onFocus={() => setActive({ row, column })}
-                          onClick={() => {
-                            if (!isTaken)
-                              setChosen(chosen === key ? undefined : key)
-                          }}
-                        >
-                          {state}
-                        </button>
-                      </td>
-                    )
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="courts__top">
+          <div>
+            <h1>Reservar una pista</h1>
+            <p className="courts__intro">Sábado 14 de noviembre de 2026.</p>
+          </div>
+          <p className="courts__club">
+            <span>Club La Red · Pistas cubiertas</span>
+            <span>90 minutos · 32 € la pista</span>
+          </p>
         </div>
-        <p className="courts__status" role="status">
-          {chosen
-            ? `Has elegido la ${courts[chosenColumn].toLowerCase()} a las ${hours[chosenRow]}.`
-            : ''}
-        </p>
-        <p>
+        <div className="courts__card">
+          <p id={`${id}-hint`} className="courts__hint" data-fix="hint">
+            Elige una hora libre.
+            {fixed &&
+              ' Dentro de la tabla, muévete con las flechas y pulsa Enter para elegir.'}
+          </p>
+          <p className="courts__legend">
+            <span className="courts__key courts__key--free">Libre</span>
+            <span className="courts__key courts__key--taken">Ocupada</span>
+            <span className="courts__key courts__key--chosen">Elegida</span>
+          </p>
+          <div className="courts__frame">
+            <table
+              ref={grid}
+              className="courts__table"
+              role="grid"
+              aria-describedby={fixed ? `${id}-hint` : undefined}
+              data-fix="arrows"
+              onKeyDown={onKeyDown}
+            >
+              <caption>Pistas disponibles</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Hora</th>
+                  {courts.map((court) => (
+                    <th key={court} scope="col">
+                      {court}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody data-fix="one-stop">
+                {hours.map((hour, row) => (
+                  <tr key={hour}>
+                    <th scope="row">{hour}</th>
+                    {courts.map((court, column) => {
+                      const key = `${row}-${column}`
+                      const isTaken = taken.has(key)
+                      const state = isTaken
+                        ? 'Ocupada'
+                        : chosen === key
+                          ? 'Elegida'
+                          : 'Libre'
+                      const isActive =
+                        active.row === row && active.column === column
+                      return (
+                        <td key={court}>
+                          <button
+                            type="button"
+                            className={`courts__slot courts__slot--${isTaken ? 'taken' : chosen === key ? 'chosen' : 'free'}`}
+                            aria-label={`${hour}, ${court}: ${state}`}
+                            aria-disabled={isTaken || undefined}
+                            // Arreglo: solo la celda activa está en el orden de Tab.
+                            tabIndex={fixed ? (isActive ? 0 : -1) : undefined}
+                            data-row={row}
+                            data-column={column}
+                            onFocus={() => setActive({ row, column })}
+                            onClick={() => {
+                              if (!isTaken)
+                                setChosen(chosen === key ? undefined : key)
+                            }}
+                          >
+                            {state}
+                          </button>
+                        </td>
+                      )
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="courts__status" role="status">
+            {chosen
+              ? `Has elegido la ${courts[chosenColumn].toLowerCase()} a las ${hours[chosenRow]}.`
+              : ''}
+          </p>
+        </div>
+        <p className="courts__more">
           <a href={`#${id}-main`}>Ver mis reservas</a>
         </p>
       </main>

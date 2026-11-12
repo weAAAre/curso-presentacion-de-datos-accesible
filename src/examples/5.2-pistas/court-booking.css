@@ -1,168 +1,348 @@
-/* Club de pádel con el lenguaje visual de weAAAre. */
+/* Pádel La Red: app de reservas de un club. Azul noche, azul pista y bola lima. */
 .courts {
-  --page-accent: var(--color-surface);
+  --navy: #0e2340;
+  --court: #1f5fb8;
+  --court-tint: #e9f0fb;
+  --ball: #d7f04b;
+  --ink: #14213a;
+  --ink-soft: #4b586d;
+  --line: #d8e0ec;
+  --free-ink: #0f5c34;
+  --free-bg: #eef9f2;
+  --free-line: #3d855b;
+  --taken-ink: #4f5866;
+  --taken-bg: #eef1f5;
+  --gutter: clamp(1rem, 5vw, 4rem);
 
   min-block-size: 100vh;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  background: #f1f4f9;
+  color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.5;
 }
 
 .courts a {
-  color: var(--color-ink);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
-}
-
-.courts a:hover {
-  background: var(--color-accent);
+  color: var(--court);
+  font-weight: 700;
+  text-underline-offset: 0.25em;
 }
 
 .courts :focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: var(--focus-offset);
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
 }
 
+/* Barra de la aplicación. */
 .courts__header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: var(--border);
-  background: var(--page-accent);
+  gap: 0.75rem 2rem;
+  padding: 0.9rem var(--gutter);
+  background: var(--navy);
+  color: #fff;
 }
 
-.courts__header :focus-visible,
-.courts__table thead :focus-visible {
-  outline-color: var(--color-ink);
+.courts__header :focus-visible {
+  outline-color: var(--ball);
 }
 
 .courts__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.3125rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Marca: una bola de pádel con su costura. */
+.courts__logo {
+  flex: none;
+  inline-size: 1.85rem;
+  block-size: 1.85rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at -38% 50%,
+      transparent 60%,
+      #fff 61% 68%,
+      transparent 69%
+    ),
+    radial-gradient(
+      circle at 138% 50%,
+      transparent 60%,
+      #fff 61% 68%,
+      transparent 69%
+    ),
+    var(--ball);
 }
 
 .courts__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.25rem;
+}
+
+.courts .courts__nav a {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.courts .courts__nav a:hover {
+  background: rgb(255 255 255 / 0.12);
+  text-decoration: underline;
 }
 
 .courts__main {
-  max-inline-size: 60rem;
+  max-inline-size: min(72rem, 100% - 2rem);
   margin-inline: auto;
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  padding-block: clamp(1.75rem, 4vw, 3rem) 4rem;
+}
+
+.courts__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-block-end: 1.5rem;
 }
 
 .courts h1 {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-display);
-  font-variation-settings: var(--font-display-settings);
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
-  font-weight: 500;
-  line-height: 1.15;
+  margin: 0 0 0.25rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.875rem, 1.3rem + 2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .courts__intro {
-  margin-block-start: 0;
-  color: var(--color-ink-medium);
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.125rem;
+}
+
+.courts__club {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.courts__club span {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.courts__card {
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(14 35 64 / 0.06),
+    0 12px 32px rgb(14 35 64 / 0.08);
+}
+
+.courts__hint {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border-radius: 0.75rem;
+  background:
+    var(--court-tint)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f5fb8' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 11v6M12 7.5v.5'/%3E%3C/svg%3E")
+    1rem 0.85rem / 1.25rem no-repeat;
+  color: var(--ink);
+}
+
+.courts__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.courts__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.courts__key::before {
+  content: "";
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  border-radius: 0.3rem;
+}
+
+.courts__key--free::before {
+  background: var(--free-bg);
+  box-shadow: inset 0 0 0 1px var(--free-line);
+}
+
+.courts__key--taken::before {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--taken-bg) 0 3px,
+    #d5dae2 3px 5px
+  );
+  box-shadow: inset 0 0 0 1px #c3cad5;
+}
+
+.courts__key--chosen::before {
+  background: var(--navy);
+  box-shadow: inset 0 -3px 0 var(--ball);
+}
+
+.courts__frame {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
 }
 
 .courts__table {
   inline-size: 100%;
-  min-inline-size: 38rem;
+  min-inline-size: 40rem;
   border-collapse: collapse;
 }
 
 .courts__table caption {
-  padding: 1rem 1rem 0.5rem;
-  font-family: var(--font-body);
-  font-size: 1.5rem;
+  padding: 1rem 1.25rem 0.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   text-align: start;
 }
 
 .courts__table th,
 .courts__table td {
-  padding: 0.6rem 1rem;
-  border-block-end: 1px solid var(--color-rule-soft);
-  text-align: start;
-}
-
-.courts__table thead th {
-  border-block-end: var(--border);
-  background: var(--page-accent);
-  font-weight: 700;
-}
-
-.courts__footer {
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: var(--border);
-  color: var(--color-ink-soft);
-  font-size: 0.875rem;
+  padding: 0.6rem 0.75rem;
+  border-block-end: 1px solid var(--line);
   text-align: center;
 }
 
-.courts__frame {
-  max-inline-size: 100%;
-  overflow-x: auto;
-  border: var(--border);
-  border-radius: var(--radius-lg);
+.courts__table thead th {
+  background: var(--court-tint);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.courts__table tr > :first-child {
+  padding-inline-start: 1.25rem;
+  text-align: start;
+}
+
+.courts__table tbody tr:last-child > * {
+  border-block-end: 0;
 }
 
 .courts__table tbody th {
+  font-family: var(--font-mono);
   font-weight: 700;
-}
-
-.courts__hint {
-  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .courts__slot {
   inline-size: 100%;
   min-inline-size: 6.5rem;
-  min-block-size: 2.75rem;
-  padding: 0.25rem 0.75rem;
-  border: var(--border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  color: var(--color-ink);
+  min-block-size: 3rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--free-line);
+  border-radius: 0.6rem;
+  background: var(--free-bg);
+  color: var(--free-ink);
   font-weight: 700;
   cursor: pointer;
 }
 
 .courts__slot:hover {
-  background: var(--color-accent);
+  border-color: var(--free-ink);
+  background: #dcf2e4;
 }
 
 .courts__slot--taken {
-  border-style: dashed;
-  background: transparent;
-  color: var(--color-ink-medium);
+  border-color: #c3cad5;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--taken-bg) 0 6px,
+    #e2e6ec 6px 9px
+  );
+  color: var(--taken-ink);
   font-weight: 400;
   cursor: not-allowed;
 }
 
 .courts__slot--taken:hover {
-  background: transparent;
+  border-color: #c3cad5;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--taken-bg) 0 6px,
+    #e2e6ec 6px 9px
+  );
 }
 
-.courts__slot--chosen {
-  background: var(--color-ink);
-  color: var(--color-paper);
-}
-
+.courts__slot--chosen,
 .courts__slot--chosen:hover {
-  background: var(--color-ink);
+  border-color: var(--navy);
+  background: var(--navy);
+  box-shadow: inset 0 -4px 0 var(--ball);
+  color: #fff;
+}
+
+/* Celda activa: anillo azul noche con halo lima, muy visible en cualquier estado. */
+.courts .courts__slot:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 9px var(--ball);
+}
+
+.courts .courts__slot--chosen:focus-visible {
+  box-shadow:
+    inset 0 -4px 0 var(--ball),
+    0 0 0 3px #fff,
+    0 0 0 9px var(--ball);
 }
 
 .courts__status {
-  min-block-size: 1.6em;
+  min-block-size: 1.5em;
+  margin: 1rem 0 0;
   font-weight: 700;
+}
+
+.courts__status:not(:empty) {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--free-bg);
+  color: var(--free-ink);
+}
+
+.courts__more {
+  margin: 1.5rem 0 0;
+}
+
+.courts__footer {
+  padding: 1.5rem var(--gutter);
+  border-block-start: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.courts__footer p {
+  margin: 0;
 }
